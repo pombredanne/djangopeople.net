@@ -1,0 +1,31 @@
+{% extends "maps.html" %}
+{% load staticfiles gravatar %}
+
+{% block title %}{% trans "Active on IRC in the past hour" %}{% endblock %}
+
+{% block header %}
+	<h1>{% trans "Active on IRC in the past hour" %}</h1
+	{% if people_list %}<p class="meta">{% blocktrans count counter=people_list|length %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}{% else %}{% trans "No one is currently active" %}{% endif %}
+{% endblock %}
+
+{% block map %}
+{% if people_list %}
+	<div class="mapContainer major">
+		<div id="gmap">&nbsp;</div>
+	</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if people_list %}
+		<ul class="detailsList split">
+			{% for person in people_list %}
+				<li class="vcard">
+					<img src="{% gravatar person.user.email 40 %}" alt="{{ person }}" class="main photo">
+					<h3><a href="{{ person.get_absolute_url }}" class="url fn n"><span class="given-name">{{ person.user.first_name }}</span> <span class="family-name">{{ person.user.last_name }}</span></a></h3>
+					<p class="meta adr"><a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg"><img src="{% static person.country.flag_url %}" alt="{{ person.country }}" class="country-name" title="{{ person.country }}"></a> <span class="region">{{ person.location_description }}</span><br>{% blocktrans with nick=person.irc_nick since=person.last_active_on_irc|timesince %}<strong>{{ nick }}</strong>, active {{ since }} ago{% endblocktrans %}</p>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

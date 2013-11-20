@@ -1,0 +1,21 @@
+{% extends "maps.html" %}
+{% load staticfiles person_list_items %}
+
+{% block title %}{{ tag }} |{% endblock %}
+
+{% block header %}
+	<h1>{{ tag }}</h1>
+	<p class="meta">{% if country %}<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static country.flag_url %}" alt="{{ country }}" title="{{ country }}" class="flag"></a> {% endif %}{% blocktrans count counter=people_list.count %}{{ counter }} Django Person mention this skill{% plural %}{{ counter }} Django People mention this skill{% endblocktrans %}</p>
+{% endblock %}
+
+{% block map %}
+	<div class="mapContainer major">
+		<div id="gmap">&nbsp;</div>
+	</div>
+{% endblock %}
+
+{% block content %}
+	<ul class="detailsList split">
+		{% person_list_items people_list %}
+	</ul>
+{% endblock %}

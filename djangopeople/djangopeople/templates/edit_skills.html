@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{% trans "Update your skills" %} |{% endblock %}
+
+{% block header%}
+	<h1>{% trans "Update your skills" %}</h1>
+{% endblock %}
+
+{% block content %}
+	<form action="{% url "edit_skills" user.username %}" method="POST" id="editSkills">
+		{% include "includes/form.html" %}
+		<div class="buttonContainer"><input type="submit" value="{% trans "Update skills" %}" /></div>
+	</form>
+{% endblock %}

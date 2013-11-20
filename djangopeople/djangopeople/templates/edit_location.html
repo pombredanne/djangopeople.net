@@ -1,0 +1,70 @@
+{% extends "maps.html" %}
+{% load staticfiles sekizai_tags %}
+
+{% block title %}{% trans "Change your location" %} |{% endblock %}
+
+{% block header%}
+	<h1>{% trans "Change your location" %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% addtoblock "js" %}
+	<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
+	<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+	<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">
+	<style type="text/css">
+		#id_location_description {
+			width: 24em;
+		}
+	</style>
+{% endaddtoblock %}
+
+{% endblock %}
+{% block extra %}
+<div class="content">
+	<p class="help">{% trans "<strong>Zoom and center the map on your location</strong>. Your map location will be shared in public, so only make it as accurate as makes you comfortable." %}</p>
+</div>
+<div class="mapContainer major" id="mapWrapper">
+	<div id="gmap">&nbsp;</div>
+	<div id="crosshair"></div>
+</div>
+
+<div class="content">
+	<form method="post" action="{% url "edit_location" user.username %}">
+		{% csrf_token %}
+		<fieldset>
+			<div class="fieldWrapper" id="location">
+				{{ form.location_description.errors }}
+				<label for="id_location_description">{% trans "Location *" %}</label>
+				{{ form.location_description }}
+			</div>
+			<p class="help">{% trans "A short textual description of your location will be displayed on the site. We attempt to derive this from your position on the map, but you can customise it if you like." %}</p>
+			<div class="fieldWrapper country">
+				{{ form.country.errors }}
+				<label for="id_country">{% trans "Country" %}</label>
+				{{ form.country }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.latitude.errors }}
+				<label for="id_latitude">{% trans "Latitude" %}</label>
+				{{ form.latitude }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.longitude.errors }}
+				<label for="id_longitude">{% trans "Longitude" %}</label>
+				{{ form.longitude }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.region.errors }}
+				<label for="id_region">{% trans "Region" %}</label>
+				{{ form.region }}
+			</div>
+		</fieldset>
+		<div class="buttonContainer"><input type="submit" value="{% trans "Change location" %}"></div>
+	</form>
+</div>
+{% endblock %}

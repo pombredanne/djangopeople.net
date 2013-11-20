@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[djangopeople.core]
+file_filter = djangopeople/locale/<lang>/LC_MESSAGES/django.po
+source_file = djangopeople/locale/en/LC_MESSAGES/django.po
+source_lang = en

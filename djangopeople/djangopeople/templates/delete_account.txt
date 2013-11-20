@@ -1,0 +1,7 @@
+{% blocktrans with name=user.get_full_name %}Dear {{ name }},{% endblocktrans %}
+
+{% blocktrans with domain=site.domain %}It seems you're willing to delete your account from {{ domain }}. You can delete your account by following the instructions on the link below:{% endblocktrans %}
+
+{{ scheme }}://{{ site.domain }}{{ url }}
+
+{% trans "For security reasons, this link will stay valid for only 5 minutes." %}

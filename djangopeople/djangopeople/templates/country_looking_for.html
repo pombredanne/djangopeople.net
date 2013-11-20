@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load person_list_items %}
+
+{% block title %}{% blocktrans %}People in {{ country }} looking for {{ looking_for }}{% endblocktrans %} |{% endblock %}
+
+{% block header %}
+	<h1>{% blocktrans %}{{ country }}, seeking {{ looking_for }} work{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block map %}
+{% endblock %}
+
+{% block content %}
+	<ul class="detailsList split">
+		{% person_list_items people %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load static staticfiles gravatar %}
+{% for person in people %}
+<li class="vcard">
+	<img src="{% gravatar person.user.email 40 %}" alt="{{ person }}" class="main photo">
+	<h3><a href="{{ person.get_absolute_url }}" class="url fn n"><span class="given-name">{{ person.user.first_name }}</span> <span class="family-name">{{ person.user.last_name }}</span></a></h3>
+	<p class="meta adr"><a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg"><img src="{% static person.country.flag_url %}" alt="{{ person.country }}" class="country-name" title="{{ person.country }}"></a> <span class="region">{{ person.location_description }}</span></p>
+</li>
+{% endfor %}

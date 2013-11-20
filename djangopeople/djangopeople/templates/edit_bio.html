@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{% trans "Edit your bio" %} |{% endblock %}
+
+{% block header%}
+	<h1>{% trans "Edit your bio" %}</h1>
+{% endblock %}
+
+{% block content %}
+	<form method="post" action="{% url "edit_bio" user.username %}">
+		<p class="help">{% trans "No HTML allowed, but paragraph tags will be added automatically and URLs will be turned in to links." %}</p>
+
+		{% include "includes/form.html" %}
+
+		<div class="buttonContainer"><input type="submit" value="{% trans "Update bio" %}"></div>
+	</form>
+{% endblock %}

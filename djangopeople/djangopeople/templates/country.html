@@ -1,0 +1,96 @@
+{% extends "maps.html" %}
+{% load staticfiles person_list_items sekizai_tags %}
+
+{% block title %}{{ country }} |{% endblock %}
+
+{% block header %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+	$(function() {
+		var swBound = new google.maps.LatLng({{ country.bbox_south }}, {{ country.bbox_west }});
+		var neBound = new google.maps.LatLng({{ country.bbox_north }}, {{ country.bbox_east }});
+		var boundBox = new google.maps.LatLngBounds(swBound, neBound);
+		var gmap = new google.maps.Map(document.getElementById('gmap'), {
+			zoom: 9,
+			center: boundBox.getCenter(),
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			scrollwheel: false
+		});
+		gmap.fitBounds(boundBox);
+
+		// Plot the people as markers
+		plotPeopleOnMap(people, gmap);
+	});
+</script>
+{% endaddtoblock %}
+
+	{% if country.iso_code or country.flag %}<img src="{% static country.flag_url %}" alt="{{ country }}" class="main">{% endif %}
+	<h1>{{ country }}</h1>
+	<p class="meta">
+		{% if country.country %}
+			<a href="{% url "country_detail" country.country.iso_code|lower %}" class="nobg">
+				<img src="{% static country.country.flag_url %}" title="{{ country.country }}" alt="{{ country.country }}" class="flag">
+			</a>
+		{% endif %}
+		{% if is_paginated %}
+			{% blocktrans count counter=paginator.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+		{% else %}
+			{% blocktrans count counter=people_list.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+		{% endif %}
+	</p>
+{% endblock %}
+
+{% block map %}
+	<div class="mapContainer major">
+		<div id="gmap">&nbsp;</div>
+	</div>
+{% endblock %}
+
+	{% block content %}
+	{% with country.countrysite_set.all as sites %}
+	{% if sites %}
+	<div class="highlight">
+		<h2>{% blocktrans %}Django community sites in {{ country }}{% endblocktrans %}</h2>
+		<ul>
+		{% for site in sites %}
+			<li><a href="{{ site.url }}" class="ext">{{ site.title }}</a></li>
+		{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+	{% endwith %}
+	{% if is_paginated %}
+		<div class="paginator highlight">
+			<div class="info">{% blocktrans with num=page_obj.number total=paginator.num_pages %}Page {{ num }} of {{ total }}{% endblocktrans %}</div>
+			<div class="pages">{% for page in paginator.page_range %}
+				{% if page == page_obj.number %}
+					<strong>{{ page }}</strong>
+				{% else %}
+					{% if country.country %}
+						<a href="{% url "country_region" country.country.iso_code|lower country.code|lower %}?page={{ page }}">{{ page }}</a>
+					{% else %}
+						<a href="{% url "country_detail" country.iso_code|lower %}?page={{ page }}">{{ page }}</a>
+					{% endif %}
+				{% endif %}
+			{% endfor %}</div>
+		</div>
+	{% endif %}
+		<ul class="detailsList split">
+			{% if is_paginated %}
+				{% person_list_items page_obj.object_list %}
+			{% else %}
+				{% person_list_items people_list %}
+			{% endif %}
+		</ul>
+		{% if regions %}
+			<h2>{% trans "Regions" %}</h2>
+		<ul class="detailsList split">
+			{% for region in regions %}
+			<li>
+		{% if region.flag %}<a href="{% url "country_region" country.iso_code|lower region.code|lower %}" class="nobg"><img src="{% static region.small_flag_url %}" width="16" height="11" alt="{{ region }}" title="{{ region }}"></a> {% endif %}<a href="{% url "country_region" country.iso_code|lower region.code|lower %}"><strong>{{ region }}</strong></a> {% blocktrans count counter=region.num_people %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	{% endblock %}

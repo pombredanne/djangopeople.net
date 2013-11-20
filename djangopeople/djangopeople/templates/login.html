@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles sekizai_tags %}
+
+{% block title %}{% trans "Log in" %} |{% endblock %}
+
+{% block nav_li_class_login %} class="current"{% endblock %}
+
+{% block header%}
+	<h1>{% trans "Log in" %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
+<script type="text/javascript">
+	$(function() {
+		$('p.invalid').css({
+			'backgroundColor': 'red',
+			'color': 'white'
+		});
+		setTimeout(function() {
+			$('p.invalid').animate({
+				'backgroundColor': 'pink',
+				'color': 'black'
+			}, 1500);
+		}, 2000);
+		{% if form.errors %}
+			$('input#id_password').focus();
+		{% else %}
+			$('input#id_username').focus();
+		{% endif %}
+	});
+</script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+	p.invalid {
+		padding: 0.5em 0.3em 0.3em 0.5em;
+		margin: 1em 0;
+	}
+	input.openid {
+		background: url('{% static "djangopeople/img/openid-14x14.png" %}') no-repeat;
+		background-position: 0 50%;
+		padding-left: 16px;
+	}
+</style>
+{% endaddtoblock %}
+
+	<form method="post" action="{% url "login" %}">
+		{% csrf_token %}
+		{% if form.errors %}
+			<p class="invalid">{% trans "Your login attempt failed." %}</p>
+		{% endif %}
+		<fieldset>
+			{% for field in form %}
+				<div class="fieldWrapper">
+					{{ field.label_tag }}
+					{{ field }}
+					{% if field.name == "password" %}
+						<p><a href="{% url "password_reset_recover" %}">{% trans "Lost your password?" %}</a></p>
+					{% endif %}
+				</div>
+			{% endfor %}
+			<input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url "redirect_to_logged_in_user_profile" %}{% endif %}">
+		</fieldset>
+		<div class="buttonContainer">
+			<input type="submit" value="{% trans "Log in" %}">
+		</div>
+	</form>
+
+	<h2>{% trans "Or sign in with your OpenID" %}</h2>
+
+	<form method="post" action="{% url "openid_begin" %}">
+		{% csrf_token %}
+		<fieldset>
+			<div class="fieldWrapper">
+				<label for="id_openid">{% trans "OpenID" %}</label>
+				<input id="id_openid" class="openid" type="text" name="openid_url">
+			</div>
+			<p><a href="{% url "password_reset_recover" %}">{% trans "OpenID not working?" %}</a></p>
+		</fieldset>
+		<div class="buttonContainer">
+			<input type="submit" value="{% trans "Log in with OpenID" %}">
+		</div>
+	</form>
+{% endblock %}

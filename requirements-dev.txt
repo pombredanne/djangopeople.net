@@ -1,0 +1,7 @@
+-r requirements.txt
+flake8==2.0
+mccabe==0.2.1
+mock==1.0.1
+pep8==1.4.5
+pep8-naming==0.2.1
+pyflakes==0.7.2

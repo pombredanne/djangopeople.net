@@ -1,0 +1,18 @@
+{% extends "edit_account.html" %}
+
+{% block title %}{% trans "Account deletion" %} |{% endblock %}
+
+{% block header %}<h1>{% trans "Account deletion" %}</h1>{% endblock %}
+
+{% block content %}
+	<p>{% trans "You are about to request complete removal of your account and data from this site. This will be done using the following process:" %}</p>
+	<ul>
+		<li>{% trans "When you submit the following form, you will receive an email with a private link." %}</li>
+		<li>{% trans "This link (valid for 5 minutes only) will take you to a page where you can enter your password to actually delete your account." %}</li>
+	</ul>
+	<p>{% trans "If you are ready to proceed, submit the form below." %}</p>
+	<form method="post" action="{% url "delete_account_request" user.username %}">
+		{% include "form.html" %}
+		<div class="buttonContainer"><input type="submit" value="{% trans "Request account deletion" %}"></div>
+	</form>
+{% endblock %}

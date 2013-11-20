@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{% trans "Skills" %} |{% endblock %}
+
+{% block header %}
+	<h1>Skills</h1>
+	{% if country %}
+		<p class="meta"><img src="{% static country.flag_url %}" title="{{ country }}" class="flag"></a> {{ country }}</p>
+	{% endif %}
+{% endblock %}
+
+{% block map %}
+{% endblock %}
+
+{% block content %}
+	<ul class="tagcloud">
+		{% for tag in tags %}
+			<li class="t{{ tag.font_size }}"><a href="{% if country %}{% url "country_skill" country.iso_code|lower tag %}{% else %}
+				{% url "skill_detail" tag %}{% endif %}" title="{% blocktrans count counter=tag.count %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}">{{ tag }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

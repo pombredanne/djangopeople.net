@@ -1,0 +1,28 @@
+{% extends "edit_account.html" %}
+{% load sekizai_tags %}
+
+{% block title %}{% trans "Update your portfolio" %} |{% endblock %}
+
+{% block header%}
+	<h1>{% trans "Update your portfolio" %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+	.fieldWrapper label {
+		width: 5em;
+	}
+	.fieldWrapper input {
+		width: 20em;
+	}
+</style>
+{% endaddtoblock %}
+
+	<p class="help">{% trans "Show off the sites and projects you've personally built (or contributed to) using Django." %}</p>
+	<form method="post" action="{% url "edit_portfolio" user.username %}">
+		{% include "includes/form.html" %}
+		<div class="buttonContainer"><input type="submit" value="{% trans "Update portfolio" %}" /></div>
+	</form>
+{% endblock %}

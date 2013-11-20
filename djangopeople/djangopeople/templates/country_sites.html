@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{% blocktrans %}Sites in {{ country }}{% endblocktrans %} |{% endblock %}
+
+{% block header %}
+	<h1>{% blocktrans %}Sites in {{ country }}{% endblocktrans %}</h1>
+	<p class="meta"><img src="{% static country.flag_url %}" title="{{ country }}" class="flag"></a> {{ country }}</p>
+{% endblock %}
+
+{% block map %}{% endblock %}
+
+{% block content %}
+	<ul class="countrysites">
+		{% for site in sites %}
+			<li>{% blocktrans with url=site.url title=site.title author_url=site.contributor.get_absolute_url author=site.contributor %}<a href="{{ url }}">{{ title }}</a> by <a href="{{ author_url }}">{{ author }}</a>{% endblocktrans %}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
