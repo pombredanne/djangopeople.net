@@ -1,3 +1,5 @@
+from mock import patch
+
 from django.conf import settings
 from django.contrib.auth.middleware import AuthenticationMiddleware
 from django.contrib.auth.models import User
@@ -383,3 +385,12 @@ class DjangoPeopleTest(TestCase):
         url = reverse('login')
         response = self.client.get(url)
         self.assertNotContains(response, 'Discover users of the')
+
+    @patch('requests.get')
+    def test_geonames(self, get):
+        get.return_value.json.return_value = {'foo': 'bar'}
+        url = reverse('geonames')
+        self.client.get(url, {'lon': 12, 'lat': 2})
+        get.assert_called_with(
+            'http://ws.geonames.org/findNearbyPlaceNameJSON',
+            params={u'lat': [u'2'], 'username': 'brutasse', u'lon': [u'12']})

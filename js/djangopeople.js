@@ -7,8 +7,7 @@
         var lon = $('input#id_longitude').val();
         var lat = $('input#id_latitude').val();
 
-        var url = 'http://ws.geonames.org/findNearbyPlaceNameJSON?';
-        url += 'username=brutasse&lat=' + lat + '&lng=' + lon + '&callback=?';
+        var url = '/geonames/?lat=' + lat + '&lng=' + lon;
         jQuery.getJSON(url, function(json) {
             if (typeof json.geonames != 'undefined' && json.geonames.length > 0) {
                 // We got results
