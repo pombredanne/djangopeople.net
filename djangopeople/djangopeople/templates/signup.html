@@ -6,7 +6,7 @@
 {% block nav_li_class_signup %} class="current"{% endblock %}
 
 {% block post_map_init %}
-	handleFormGeoElements(MAP);
+	djangopeople.handleFormGeoElements(MAP);
 {% endblock %}
 
 {% block header%}
@@ -14,11 +14,6 @@
 {% endblock %}
 
 {% block content %}
-
-{% addtoblock "js" %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
-<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
-{% endaddtoblock %}
 
 {% addtoblock "css" %}
 <link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">

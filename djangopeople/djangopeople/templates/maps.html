@@ -9,19 +9,6 @@
 <![endif]-->
 {% endaddtoblock %}
 
-{% if debug %}
-{% addtoblock "js" %}
-<script src="{% static "djangopeople/leaflet/leaflet-src.js" %}"></script>
-{% endaddtoblock %}
-{% else %}
-{% addtoblock "js" %}
-<script src="{% static "djangopeople/leaflet/leaflet.js" %}"></script>
-{% endaddtoblock %}
-{% endif %}
-{% addtoblock "js" %}
-<script type="text/javascript" src="{% static "djangopeople/js/maps.js" %}"></script>
-{% endaddtoblock %}
-
 {% addtoblock "js" %}
 <script type="text/javascript">
 	var people = [
@@ -78,16 +65,17 @@ $(function() {
 
 	// Plot the people as markers
 	if (typeof people != 'undefined' && people.length > 0) {
-		plotPeopleOnMap(people, MAP);
+		djangopeople.plotPeopleOnMap(people, MAP);
 	}
 
 	if (shrink) {
-		shrinkMap(MAP, shrink);
+		djangopeople.shrinkMap(MAP, shrink);
 	}
 
 	if (edit) {
-		handleFormGeoElements(MAP);
+		djangopeople.handleFormGeoElements(MAP);
 	}
+	window.MAP = MAP;
 });
 </script>
 {% endaddtoblock %}

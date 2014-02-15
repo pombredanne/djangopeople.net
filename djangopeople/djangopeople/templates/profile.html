@@ -28,10 +28,6 @@
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="{% static "djangopeople/js/profile.js" %}"></script>
-{% endaddtoblock %}
-
-{% addtoblock "js" %}
 <script type="text/options" class="map-options" data-shrinklat="{{ person.latitude_str }}" data-shrinklon="{{ person.longitude_str }}"></script>
 {% endaddtoblock %}
 

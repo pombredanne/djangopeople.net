@@ -33,28 +33,3 @@
 		</ul>
 	{% endif %}
 {% endblock %}
-
-{% block map_extra_options %}
-<script type="text/javascript">
-	var south, north, west, east;
-	$.each(people, function(index, value) {
-		if (!index) {
-			south = value[0];
-			north = value[0];
-			east = value[1];
-			west = value[1];
-		}
-		south = Math.min(value[0], south);
-		north = Math.max(value[0], north);
-		east = Math.max(value[1], east);
-		west = Math.min(value[1], west);
-	});
-	var swBound = new L.LatLng(south, west);
-	var neBound = new L.LatLng(north, east);
-	var boundBox = new L.LatLngBounds(swBound, neBound);
-</script>
-{% endblock %}
-
-{% block post_map_init %}
-	MAP.fitBounds(boundBox);
-{% endblock %}

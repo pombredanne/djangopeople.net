@@ -55,8 +55,11 @@
 	<p>{% blocktrans %}Hosted on <span class="heroku">Heroku</span>{% endblocktrans %}</p>
 </div>
 
-<script type="text/javascript" src="{% static "djangopeople/js/jquery-1.11.0.min.js" %}"></script>
-<script type="text/javascript" src="{% static "djangopeople/js/common.js" %}"></script>
+{% if debug %}
+	<script type="text/javascript" src="{% static "djangopeople/js/djangopeople.js" %}"></script>
+{% else %}
+	<script type="text/javascript" src="{% static "djangopeople/js/djangopeople.min.js" %}"></script>
+{% endif %}
 
 {% render_block "js" %}
 </body>
