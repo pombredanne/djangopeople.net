@@ -97,7 +97,7 @@ var DJMap = L.Map.extend({
             bounds.extend(marker.getLatLng());
             marker.addTo(map);
         });
-        this.fitBounds(bounds);
+        this.fitBounds(bounds, {reset: true});
         return bounds;
     },
 
