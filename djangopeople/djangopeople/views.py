@@ -247,7 +247,7 @@ class SignupView(generic.FormView):
         })
         return ctx
 signup = SignupView.as_view()
-signup = transaction.commit_on_success(signup)
+signup = transaction.atomic(signup)
 
 
 def derive_username(nickname):

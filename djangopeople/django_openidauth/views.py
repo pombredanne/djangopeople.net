@@ -73,8 +73,8 @@ def associations(request, template_name='openid_associations.html'):
             messages.append(
                 _('%s could not be associated with your account, as it is '
                   'already associated with a different account') % escape(
-                      new_openid
-                  )
+                    new_openid
+                )
             )
 
     # Now cycle through POST.keys() looking for OpenIDs to add or remove

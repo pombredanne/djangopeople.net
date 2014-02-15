@@ -35,11 +35,11 @@ MACHINETAGS_FROM_FIELDS = dict(
      for shortname, name, icon in SERVICES] +
     [('im_%s' % shortname, ('im', shortname))
      for shortname, name, icon in IMPROVIDERS] + [
-         ('privacy_search', ('privacy', 'search')),
-         ('privacy_email', ('privacy', 'email')),
-         ('privacy_im', ('privacy', 'im')),
-         ('privacy_irctrack', ('privacy', 'irctrack')),
-         ('blog', ('profile', 'blog')),
-         ('looking_for_work', ('profile', 'looking_for_work')),
-     ]
+        ('privacy_search', ('privacy', 'search')),
+        ('privacy_email', ('privacy', 'email')),
+        ('privacy_im', ('privacy', 'im')),
+        ('privacy_irctrack', ('privacy', 'irctrack')),
+        ('blog', ('profile', 'blog')),
+        ('looking_for_work', ('profile', 'looking_for_work')),
+    ]
 )
