@@ -16,6 +16,5 @@ gunicorn==18.0
 psycopg2==2.5.2
 python-openid==2.2.5
 pytz==2013.9
-raven==1.9.1
+raven==4.0.4
 redis==2.9.1
-simplejson==2.6.1
