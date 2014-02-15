@@ -871,7 +871,7 @@ div#map {
 }
 div#crosshair {
     position: absolute;
-    top: 12.5em;
+    top: 50%;
     height: 19px;
     width: 19px;
     left: 50%;
