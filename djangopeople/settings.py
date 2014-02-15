@@ -6,10 +6,6 @@ from django.core.urlresolvers import reverse_lazy
 
 OUR_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
-TEST_DISCOVER_TOP_LEVEL = os.path.join(OUR_ROOT, os.pardir)
-TEST_DISCOVERY_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
-
 DEBUG = bool(os.environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
@@ -94,7 +90,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
-    'django.middleware.doc.XViewMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
     'djangopeople.djangopeople.middleware.NoDoubleSlashes',
 )
 
@@ -233,31 +229,6 @@ try:
 except ImportError:
     pass
 else:
-    INTERNAL_IPS = (
-        '127.0.0.1',
-    )
-
     INSTALLED_APPS += (
         'debug_toolbar',
-    )
-
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
-
-    DEBUG_TOOLBAR_CONFIG = {
-        'INTERCEPT_REDIRECTS': False,
-        'HIDE_DJANGO_SQL': False,
-    }
-
-    DEBUG_TOOLBAR_PANELS = (
-        'debug_toolbar.panels.version.VersionDebugPanel',
-        'debug_toolbar.panels.timer.TimerDebugPanel',
-        'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-        'debug_toolbar.panels.headers.HeaderDebugPanel',
-        'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-        'debug_toolbar.panels.template.TemplateDebugPanel',
-        'debug_toolbar.panels.sql.SQLDebugPanel',
-        'debug_toolbar.panels.signals.SignalDebugPanel',
-        'debug_toolbar.panels.logger.LoggingPanel',
     )
