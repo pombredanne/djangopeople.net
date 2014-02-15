@@ -8,7 +8,7 @@
         var lat = $('input#id_latitude').val();
 
         var url = 'http://ws.geonames.org/findNearbyPlaceNameJSON?';
-        url += 'lat=' + lat + '&lng=' + lon + '&callback=?';
+        url += 'username=brutasse&lat=' + lat + '&lng=' + lon + '&callback=?';
         jQuery.getJSON(url, function(json) {
             if (typeof json.geonames != 'undefined' && json.geonames.length > 0) {
                 // We got results
@@ -93,144 +93,11 @@
         });
     };
 
-    var getPersonPopupContent = function(person) {
-        var STATIC_URL = $('body').data('static-url');
-        var lat = person[0];
-        var lon = person[1];
-        var name = person[2];
-        var username = person[3];
-        var location_description = person[4];
-        var photo = person[5];
-        var iso_code = person[6];
-        var html =  '<ul class="detailsList">' +
-            '<li>' +
-            '<img src="' + photo + '" alt="' + name + '" class="main">' +
-            '<h3><a href="/' + username + '/">' + name + '</a></h3>' +
-            '<p class="meta"><a href="/' + iso_code + '/" class="nobg">' +
-            '<img src="' + STATIC_URL + 'djangopeople/img/flags/' + iso_code + '.gif"></a> ' +
-            location_description + '</p>' +
-            '<p class="meta"><a href="#" onclick="djangopeople.zoomOn(' + lat + ', ' + lon + '); return false;">Zoom to point</a></p>' +
-            '</li>';
-        return html;
-    };
-
-    var zoomOn = function(lat, lon) {
-        window.MAP.panTo(new L.LatLng(lat, lon));
-        window.MAP.setZoom(12);
-    };
-
-    /* Plots people on the maps and adds an info window to it
-     * which becomes visible when you click the marker
-     */
-    var plotPeopleOnMap = function(people, map) {
-        var bounds = new L.LatLngBounds();
-        $.each(people, function(index, person) {
-            var marker = getPersonMarker(person);
-            bounds.extend(marker.getLatLng());
-            marker.addTo(map);
-        });
-        map.fitBounds(bounds);
-        return bounds;
-    };
-
-    // Creates a Marker object for a person
-    var getPersonMarker = function(person) {
-        var lat = person[0];
-        var lon = person[1];
-        var point = new L.LatLng(lat, lon);
-        // custom marker options removed for now
-        var marker = new L.Marker(point, {
-            icon: greenIconImage(),
-        });
-        var info = getPersonPopupContent(person);
-        marker.bindPopup(info)
-
-        return marker;
-    };
-
-    var greenIconImage = function() {
-        var STATIC_URL = $('body').data('static-url');
-        var greenIcon = L.icon({
-            iconUrl: STATIC_URL + 'djangopeople/img/green-bubble.png',
-            shadowUrl: STATIC_URL + 'djangopeople/img/green-bubble-shadow.png',
-            iconSize:     [32, 32], // size of the icon
-            shadowSize:   [32, 32], // size of the shadow
-            iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
-            shadowAnchor: [10, 32],  // the same for the shadow
-            popupAnchor:  [0, -32] // point from which the popup should open relative to the iconAnchor
-        });
-        return greenIcon;
-    };
-
-    var shrinkMap = function(map, latlng) {
-        // Center map
-        map.panTo(latlng);
-
-        var ShrinkMapControl = L.Control.extend({
-            options: {
-                position: 'bottomleft'
-            },
-
-            onAdd: function (map) {
-                // create the control container with a particular class name
-                var container = L.DomUtil.create('div', 'shrinkControl');
-                container.innerHTML = 'Shrink map';
-                L.DomEvent.addListener(container, 'click', this.onClick, this);
-
-                return container;
-            },
-
-            onClick: function () {
-                $('#map').css({'cursor': 'pointer'}).attr(
-                    'title', 'Activate larger map'
-                );
-                $('#map').animate({
-                    height: '7em',
-                    opacity: 0.6
-                }, 500, 'swing', function() {
-                    map._onResize()
-                    $('#map').click(onMapClicked);
-                    shrinkControl.removeFrom(map);
-                });
-
-            }
-        });
-        var shrinkControl = new ShrinkMapControl();
-
-        /* Map enlarges and becomes active when you click on it */
-        $('#map').css({'cursor': 'pointer', 'opacity': 0.6}).attr(
-                'title', 'Activate larger map'
-                );
-        function onMapClicked() {
-            $('#map').css({'cursor': ''}).attr('title', '');
-            $('#map').animate({
-                height: '25em',
-                opacity: 1.0
-            }, 500, 'swing', function() {
-                map._onResize()
-
-                // Unbind event so user can actually interact with map
-                $('#map').unbind('click', onMapClicked);
-                shrinkControl.addTo(map);
-            });
-        }
-        $('#map').click(onMapClicked);
-
-
-        // Marker for the current profile, not clickable
-        var marker = new L.Marker(latlng, {
-            icon: greenIconImage(),
-        }).addTo(map);
-    };
-
     /**
      * Djangopeople API
      */
     window.djangopeople = {
         handleFormGeoElements: handleFormGeoElements,
-        plotPeopleOnMap: plotPeopleOnMap,
-        zoomOn: zoomOn,
-        shrinkMap: shrinkMap,
     };
 
     /**

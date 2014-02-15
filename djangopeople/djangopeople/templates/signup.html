@@ -5,15 +5,15 @@
 
 {% block nav_li_class_signup %} class="current"{% endblock %}
 
-{% block post_map_init %}
-	djangopeople.handleFormGeoElements(MAP);
-{% endblock %}
-
 {% block header%}
 	<h1>{% trans "Sign up as a Django Person" %}</h1>
 {% endblock %}
 
 {% block content %}
+
+{% addtoblock "js" %}
+<script type="text/options" class="map-options" data-edit="true"></script>
+{% endaddtoblock %}
 
 {% addtoblock "css" %}
 <link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">

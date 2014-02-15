@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                     'vendor/jquery-1.11.0.min.js',
                     'vendor/jquery.color.js',
                     'vendor/leaflet.js',
-                    //'vendor/underscore.min.js',
+                    'js/maps.js',
                     'js/djangopeople.js',
                 ],
                 dest: 'djangopeople/djangopeople/static/djangopeople/js/djangopeople.js',

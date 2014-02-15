@@ -48,7 +48,6 @@ $(function() {
 		var shrink = new L.LatLng(options.shrinklat, options.shrinklon);
 		delete options.shrinklat;
 		delete options.shrinklon;
-		console.log(shrink);
 	}
 
 	// Enable edition
@@ -57,25 +56,24 @@ $(function() {
 		delete options.edit;
 	}
 
-	var MAP = new L.Map('map', options);
+	var map = new DJMap('map', options);
 	L.tileLayer('https://djangopeople-tiles-{s}.herokuapp.com/transport/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery © <a href="http://www.thunderforest.com/">Thunderforest</a>',
 	    maxZoom: 18
-	}).addTo(MAP);
+	}).addTo(map);
 
 	// Plot the people as markers
 	if (typeof people != 'undefined' && people.length > 0) {
-		djangopeople.plotPeopleOnMap(people, MAP);
+		map.plotPeople(people);
 	}
 
 	if (shrink) {
-		djangopeople.shrinkMap(MAP, shrink);
+		map.shrinkable(shrink);
 	}
 
 	if (edit) {
-		djangopeople.handleFormGeoElements(MAP);
+		djangopeople.handleFormGeoElements(map);
 	}
-	window.MAP = MAP;
 });
 </script>
 {% endaddtoblock %}
