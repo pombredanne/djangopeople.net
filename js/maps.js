@@ -52,7 +52,7 @@ var DJMarker = L.Marker.extend({
         var container = L.DomUtil.create('ul', 'detailsList'),
             li = L.DomUtil.create('li', '', container),
             img = L.DomUtil.create('img', '', li);
-        img.src = this.photo;
+        img.dataset.src = this.photo;
         var h3 = L.DomUtil.create('h3', '', li),
             a = L.DomUtil.create('a', '', h3);
         a.href = '/' + this.username + '/';
@@ -97,6 +97,16 @@ var DJMap = L.Map.extend({
             bounds.extend(marker.getLatLng());
             marker.addTo(map);
         });
+
+        map.on('popupopen', function(event) {
+            var image = event.popup._content.children[0].children[0];
+            var src = image.dataset.src;
+            if (src) {
+                image.src = src;
+                delete image.dataset.src;
+            }
+        });
+
         this.fitBounds(bounds, {reset: true});
         return bounds;
     },
