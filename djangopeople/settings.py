@@ -1,8 +1,8 @@
 import dj_database_url
 import os
-import urlparse
 
 from django.core.urlresolvers import reverse_lazy
+from django.utils.six.moves.urllib import parse
 
 OUR_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -212,8 +212,7 @@ else:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 if 'REDISTOGO_URL' in os.environ:
-    urlparse.uses_netloc.append('redis')
-    redis_url = urlparse.urlparse(os.environ['REDISTOGO_URL'])
+    redis_url = parse.urlparse(os.environ['REDISTOGO_URL'])
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
