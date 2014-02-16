@@ -21,7 +21,7 @@ var ShrinkMapControl = L.Control.extend({
 });
 
 
-L.Icon.Default.imagePath = STATIC_URL + 'djangopeople/leaflet/images/';
+L.Icon.Default.imagePath = STATIC_URL + 'djangopeople/leaflet/images';
 var DJIcon = L.Icon.Default.extend({
     options: {
         iconUrl: STATIC_URL + 'djangopeople/img/green-bubble.png'
