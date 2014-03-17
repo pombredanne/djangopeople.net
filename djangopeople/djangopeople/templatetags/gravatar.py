@@ -16,7 +16,7 @@ def gravatar(email, size=48):
         {% gravatar email_var 24 %}
     """
     url = 'https://secure.gravatar.com/avatar/%s?%s' % (
-        hashlib.md5(email).hexdigest(),
+        hashlib.md5(email.encode('utf-8')).hexdigest(),
         urllib.urlencode({'s': str(size), 'd': 'mm'}),
     )
     return url
