@@ -184,6 +184,9 @@ if 'CANONICAL_HOSTNAME' in os.environ:
     ALLOWED_HOSTS = [CANONICAL_HOSTNAME]
 
 SERVER_EMAIL = DEFAULT_FROM_EMAIL = os.environ['FROM_EMAIL']
+
+SESSION_SERIALIZER = 'djangopeople.serializers.JSONSerializer'
+
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
