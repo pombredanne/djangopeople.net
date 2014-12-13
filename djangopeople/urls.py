@@ -71,6 +71,8 @@ urlpatterns = patterns(
     url(r'^skills/(?P<tag>.*)/$', views.skill, name='skill_detail'),
     url(r'^skills/$', views.skill_cloud, name='skill_cloud'),
 
+    url(r'^api/stats/$', api.stats, name='stats'),
+
     url(r'^api/irc_lookup/(.*?)/$', api.irc_lookup, name='irc_lookup'),
     url(r'^api/irc_spotted/(.*?)/$', api.irc_spotted, name='irc_spotted'),
     url(r'^irc/active/$', views.irc_active, name='irc_active'),
