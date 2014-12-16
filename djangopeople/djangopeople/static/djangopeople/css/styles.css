@@ -579,7 +579,7 @@ div.highlight a.ext:focus {
 	background-position: left top;
 	background-repeat: no-repeat;
 }
-p.jobad, p.mapnote {
+p.mapnote {
 	background-color: #E0FFB8;
 	border-color: #94DA3A;
 	border-style: solid;
