@@ -57,7 +57,7 @@ $(function() {
 	}
 
 	var map = new DJMap('map', options);
-	L.tileLayer('https://djangopeople-tiles-{s}.herokuapp.com/transport/{z}/{x}/{y}.png', {
+	L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery © <a href="http://www.thunderforest.com/">Thunderforest</a>',
 	    maxZoom: 18
 	}).addTo(map);
