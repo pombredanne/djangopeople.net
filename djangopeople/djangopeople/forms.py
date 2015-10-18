@@ -150,29 +150,29 @@ class SignupForm(PopulateChoices, forms.Form):
             ('never', _('Noone can ever see my email address')),
         ), widget=forms.RadioSelect, initial='private'
     )
-    privacy_im = forms.ChoiceField(
-        label=_('IM privacy'),
-        choices=(
-            ('public', _('Anyone can see my IM details')),
-            ('private', _('Only logged-in users can see my IM details')),
-        ), widget=forms.RadioSelect, initial='private'
-    )
-    privacy_irctrack = forms.ChoiceField(
-        label=_('IRC tracking'),
-        choices=(
-            ('public', _('Keep track of the last time I was seen on IRC '
-                         '(requires your IRC nick)')),
-            ('private', _("Don't record the last time I was seen on IRC")),
-        ), widget=forms.RadioSelect, initial='public'
-    )
-    looking_for_work = forms.ChoiceField(
-        label=_('Looking for work?'),
-        choices=(
-            ('', _('Not looking for work at the moment')),
-            ('freelance', _('Looking for freelance work')),
-            ('full-time', _('Looking for full-time work')),
-        ), required=False
-    )
+    # privacy_im = forms.ChoiceField(
+    #     label=_('IM privacy'),
+    #     choices=(
+    #         ('public', _('Anyone can see my IM details')),
+    #         ('private', _('Only logged-in users can see my IM details')),
+    #     ), widget=forms.RadioSelect, initial='private'
+    # )
+    # privacy_irctrack = forms.ChoiceField(
+    #     label=_('IRC tracking'),
+    #     choices=(
+    #         ('public', _('Keep track of the last time I was seen on IRC '
+    #                      '(requires your IRC nick)')),
+    #         ('private', _("Don't record the last time I was seen on IRC")),
+    #     ), widget=forms.RadioSelect, initial='public'
+    # )
+    # looking_for_work = forms.ChoiceField(
+    #     label=_('Looking for work?'),
+    #     choices=(
+    #         ('', _('Not looking for work at the moment')),
+    #         ('freelance', _('Looking for freelance work')),
+    #         ('full-time', _('Looking for full-time work')),
+    #     ), required=False
+    # )
 
     skilltags = TagField(label=_('Your skills'), required=False)
 
@@ -374,29 +374,29 @@ class FindingForm(forms.ModelForm):
             ('never', 'No one can ever see my e-mail address'),
         ), widget=forms.RadioSelect, initial='private'
     )
-    privacy_im = forms.ChoiceField(
-        label=_('IM privacy'),
-        choices=(
-            ('public', 'Anyone can see my IM details'),
-            ('private', 'Only logged-in users can see my IM details'),
-        ), widget=forms.RadioSelect, initial='private'
-    )
-    privacy_irctrack = forms.ChoiceField(
-        label=_('IRC tracking'),
-        choices=(
-            ('public', ('Keep track of the last time I was seen on IRC '
-                        '(requires your IRC nick)')),
-            ('private', "Don't record the last time I was seen on IRC"),
-        ), widget=forms.RadioSelect, initial='public'
-    )
-    looking_for_work = forms.ChoiceField(
-        label=_('Looking for work?'),
-        choices=(
-            ('', 'Not looking for work at the moment'),
-            ('freelance', 'Looking for freelance work'),
-            ('full-time', 'Looking for full-time work'),
-        ), required=False
-    )
+    # privacy_im = forms.ChoiceField(
+    #     label=_('IM privacy'),
+    #     choices=(
+    #         ('public', 'Anyone can see my IM details'),
+    #         ('private', 'Only logged-in users can see my IM details'),
+    #     ), widget=forms.RadioSelect, initial='private'
+    # )
+    # privacy_irctrack = forms.ChoiceField(
+    #     label=_('IRC tracking'),
+    #     choices=(
+    #         ('public', ('Keep track of the last time I was seen on IRC '
+    #                     '(requires your IRC nick)')),
+    #         ('private', "Don't record the last time I was seen on IRC"),
+    #     ), widget=forms.RadioSelect, initial='public'
+    # )
+    # looking_for_work = forms.ChoiceField(
+    #     label=_('Looking for work?'),
+    #     choices=(
+    #         ('', 'Not looking for work at the moment'),
+    #         ('freelance', 'Looking for freelance work'),
+    #         ('full-time', 'Looking for full-time work'),
+    #     ), required=False
+    # )
 
     def clean_email(self):
         email = self.cleaned_data['email']

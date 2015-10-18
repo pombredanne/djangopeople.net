@@ -432,7 +432,7 @@ class ProfileView(generic.DetailView):
             'services': services,
             'privacy': privacy,
             'show_finding': show_finding,
-            'people_list': self.object.get_nearest(),
+            'people_list': self.object.get_nearest(num=7),
         })
         return context
 profile = ProfileView.as_view()

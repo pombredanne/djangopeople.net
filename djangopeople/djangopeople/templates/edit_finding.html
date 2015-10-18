@@ -49,16 +49,16 @@
 			{% endfor %}
 		</fieldset>
 		<h2>{% trans "Instant messaging" %}</h2>
-		<fieldset>
-			<p class="help">{% trans "Use any instant messaging software?" %}</p>
-			{% for provider in form.improvider_fields %}
-				<div class="fieldWrapper">
-					{{ provider.field.errors|safe }}
-					<label for="id_im_{{ provider.shortname }}">{{ provider.label }}</label>
-					{{ provider.field }}
-				</div>
-			{% endfor %}
-		</fieldset>
+{#		<fieldset>#}
+{#			<p class="help">{% trans "Use any instant messaging software?" %}</p>#}
+{#			{% for provider in form.improvider_fields %}#}
+{#				<div class="fieldWrapper">#}
+{#					{{ provider.field.errors|safe }}#}
+{#					<label for="id_im_{{ provider.shortname }}">{{ provider.label }}</label>#}
+{#					{{ provider.field }}#}
+{#				</div>#}
+{#			{% endfor %}#}
+{#		</fieldset>#}
 
 		<h2 id="privacy">{% trans "Privacy settings" %}</h2>
 		<fieldset>
