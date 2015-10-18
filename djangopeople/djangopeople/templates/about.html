@@ -6,12 +6,12 @@
 {% block nav_li_class_about %} class="current"{% endblock %}>
 
 {% block header%}
-	<h1>{% trans "About Django People" %}</h1>
+	<h1>{% trans "About Ukrainian People" %}</h1>
 {% endblock %}
 
 {% block content %}
 <div class="about">
-	<p>{% blocktrans with count=total_people countries=countries|length|apnumber %}Django People lists {{ count }} <a href="https://www.djangoproject.com/">Django</a> developers from around the world, in {{ countries }} different countries. The aim of the site is to help Django developers find like-minded souls near them, and hopefully kick-start some local meet-ups and user groups.{% endblocktrans %}</p>
+	<p>{% blocktrans with count=total_people countries=countries|length|apnumber %}Ukrainian People lists {{ count }} <a href="https://www.djangoproject.com/">Django</a> developers from around the world, in {{ countries }} different countries. The aim of the site is to help Ukrainian developers find like-minded souls near them, and hopefully kick-start some local meet-ups and user groups.{% endblocktrans %}</p>
 
 	<p>{% blocktrans %}The site was originally built and open-sourced by <a href="/simon/">Simon Willison</a> and <a href="/natbat/">Natalie Downe</a>. The code is <a href="https://github.com/brutasse/djangopeople">available on github</a>, you can post feedback and bug reports on the repository's <a href="https://github.com/brutasse/djangopeople/issues">issues page</a>.{% endblocktrans %}</p>
 
@@ -23,6 +23,5 @@
 
 	<p>{% blocktrans %}Deployment is <a href="http://gunicorn.org">gunicorn</a>, hosted on <a href="http://www.heroku.com/">Heroku</a>.{% endblocktrans %}</p>
 
-	<p><a href="https://www.djangoproject.com/"><img src="{% static "djangopeople/img/djangojoint.gif" %}" border="0" alt="{% trans "A Django joint." %}" title="{% trans "A Django joint." %}"></a></p>
 </div>
 {% endblock %}

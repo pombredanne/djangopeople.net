@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>{% block title %}{% endblock %} Django People</title>
+		<title>{% block title %}{% endblock %} Ukrainian People</title>
 		<link rel="shortcut icon" href="{% static "djangopeople/img/favicon.ico" %}">
 		<link rel="stylesheet" href="{% static "djangopeople/css/styles.css" %}" type="text/css" media="all" charset="utf-8">
 		{% render_block "css" %}
@@ -40,8 +40,8 @@
 		{% endif %}
 	</div>
 	<div class="header content">
-		{% block header %}<h1>{% trans "Django People" %}</h1>{% endblock %}
-		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %}Discover users of the <a href="https://www.djangoproject.com/">Django Web framework</a> near you{% endblocktrans %}</h2>{% endif %}{% endblock %}
+		{% block header %}<h1>{% trans "Ukrainian People" %}</h1>{% endblock %}
+		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %}Discover Ukrainian People near you{% endblocktrans %}</h2>{% endif %}{% endblock %}
 	</div>
 	{% block map %}{% endblock %}
 	<div class="content">
@@ -52,7 +52,7 @@
 </div>
 
 <div class="footer">
-	<p>{% blocktrans %}Hosted on <span class="heroku">Heroku</span>{% endblocktrans %}</p>
+	Developed by Igor Polynets
 </div>
 
 {% if debug %}

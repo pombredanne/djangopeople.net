@@ -5,7 +5,7 @@
 
 {% block header %}
 	<h1>{{ tag }}</h1>
-	<p class="meta">{% if country %}<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static country.flag_url %}" alt="{{ country }}" title="{{ country }}" class="flag"></a> {% endif %}{% blocktrans count counter=people_list.count %}{{ counter }} Django Person mention this skill{% plural %}{{ counter }} Django People mention this skill{% endblocktrans %}</p>
+	<p class="meta">{% if country %}<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static country.flag_url %}" alt="{{ country }}" title="{{ country }}" class="flag"></a> {% endif %}{% blocktrans count counter=people_list.count %}{{ counter }} Ukrainian Person mention this skill{% plural %}{{ counter }} Ukrainian People mention this skill{% endblocktrans %}</p>
 {% endblock %}
 
 {% block map %}

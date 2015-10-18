@@ -25,9 +25,9 @@
 			</a>
 		{% endif %}
 		{% if is_paginated %}
-			{% blocktrans count counter=paginator.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+			{% blocktrans count counter=paginator.count %}{{ counter }} Ukrainian person{% plural %}{{ counter }} Ukrainian people{% endblocktrans %}
 		{% else %}
-			{% blocktrans count counter=people_list.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+			{% blocktrans count counter=people_list.count %}{{ counter }} Ukrainian person{% plural %}{{ counter }} Ukrainian people{% endblocktrans %}
 		{% endif %}
 	</p>
 {% endblock %}
@@ -42,7 +42,7 @@
 	{% with country.countrysite_set.all as sites %}
 		{% if sites %}
 			<div class="highlight">
-				<h2>{% blocktrans %}Django community sites in {{ country }}{% endblocktrans %}</h2>
+				<h2>{% blocktrans %}Ukrainian community sites in {{ country }}{% endblocktrans %}</h2>
 				<ul>
 				{% for site in sites %}
 					<li><a href="{{ site.url }}" class="ext">{{ site.title }}</a></li>

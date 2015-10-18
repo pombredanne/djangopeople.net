@@ -499,15 +499,15 @@ ul.split li {
 .mapContainer {
 	text-align: left;
 	border-style: solid;
-	border-color: #92CC47;
-	border-width: 0.7em 0 0.3em;
+	border-color: #83BFE8;
+	border-width: 1px;
 	margin: 0 0 1em 0;
 }
 
 #map {
 	background-color: #99B3CC;
-	border: 1px solid #326342;
-	border-width: 2px 0 1px 0;
+	/*border: 1px solid #326342;*/
+	/*border-width: 2px 0 1px 0;*/
 	margin: 2px 0 1px 0;
 	width: 100%;
 }
@@ -539,8 +539,8 @@ div.leaflet-popup-content a {
 /* @end */
 
 .highlight {
-	background-color: #E0FFB8;
-	border-color: #94DA3A;
+	background-color: #CEEBFF;
+    border-color: #478DCC;
 	border-style: solid;
 	border-width: 1px 0;
 	padding: 0 1em 1em 1em;
@@ -580,8 +580,8 @@ div.highlight a.ext:focus {
 	background-repeat: no-repeat;
 }
 p.mapnote {
-	background-color: #E0FFB8;
-	border-color: #94DA3A;
+    background-color: #D8EEFD;
+    border-color: #3AB7DA;
 	border-style: solid;
 	border-width: 1px 0;
 	padding: 0.5em 1em;
@@ -712,7 +712,7 @@ body {
 }
 
 .header .meta {
-	color: #90B282;
+	color: #478DCC;
 	float: left;
 	width: 70%;
 	font-size: 1.7em;
@@ -726,7 +726,7 @@ body {
 /* @group Login */
 
 div#hiddenLogin {
-	background-color: #90B282;
+	background-color: #478DCC;
 	color:  white;
 	padding: 5px;
 	font-size: 0.8em;
@@ -746,10 +746,10 @@ div#hiddenLogin #id_passwordH {
 }
 div#hiddenLogin input.submit {
 	width: auto;
-	background-color: #E0FFB8;
-	color: #414F32;
-	border-color: #E0FFB8;
-	border-style: outset;
+    background-color: #ADDEFF;
+    color: #478DCC;
+    border-color: #ADDEFF;
+    border-style: groove;
 	cursor: pointer;
 	margin-right: 0.5em;
 	padding: 2px;
@@ -773,10 +773,11 @@ div#hiddenLogin .openid a:active {
 /* @end */
 
 /* @group Navigation */
-
 .nav {
-	border-bottom: 1px solid #92CC47;
+	border-bottom: 1px solid #83BFE8;;
+    height: 60px;
 }
+
 .nav:hover {
 	border-bottom: 1px solid #326342;
 }
@@ -790,6 +791,7 @@ div#hiddenLogin .openid a:active {
 	overflow: hidden;
 	text-align: left;
 	list-style-type: none;
+	padding-top: 20px;
 }
 
 .nav ul li {
@@ -807,13 +809,13 @@ div#hiddenLogin .openid a:active {
 .nav a:active,
 .nav a:focus {
 	color: #234F32;
-	background-color: #E0FFB8;
+	background-color: #ADDEFF;
 	text-decoration: none;
 	padding: 3px 5px;
 }
 .current a:link,
 .current a:visited {
-	background-color:#92CC47;
+	background-color: #478DCC;
 	color: white;
 }
 .nav a:hover,
@@ -827,7 +829,7 @@ div#hiddenLogin .openid a:active {
 /* @group content */
 
 .content {
-	margin: 0 auto 1em auto;
+	margin: 1em auto 2em auto;
 	width: 70%;
 	padding-right: 2%;
 	padding-left: 2%;
