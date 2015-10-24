@@ -197,16 +197,23 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL = environ['FROM_EMAIL']
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    EMAIL_BACKEND = 'django_ses.SESBackend'
+    # EMAIL_BACKEND = 'django_ses.SESBackend'
     AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY']
     AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = environ['AWS_BUCKET_NAME']
     AWS_QUERYSTRING_AUTH = False
     STATICFILES_STORAGE = 'djangopeople.s3storage.S3HashedFilesStorage'
     STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    AWS_SES_ACCESS_KEY_ID = environ['AWS_SES_ACCESS_KEY_ID']
-    AWS_SES_SECRET_ACCESS_KEY = environ['AWS_SES_SECRET_ACCESS_KEY']
- 
+    # AWS_SES_ACCESS_KEY_ID = environ['AWS_SES_ACCESS_KEY_ID']
+    # AWS_SES_SECRET_ACCESS_KEY = environ['AWS_SES_SECRET_ACCESS_KEY']
+    # AWS_SES_REGION_NAME = 'us-east-1'
+    # AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com'
+
+    EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+    EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = environ['AWS_SES_ACCESS_KEY_ID']
+    EMAIL_HOST_PASSWORD = environ['AWS_SES_SECRET_ACCESS_KEY']
     # Run the site over SSL
     #MIDDLEWARE_CLASSES = (
     #    'djangosecure.middleware.SecurityMiddleware',
