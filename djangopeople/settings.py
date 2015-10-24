@@ -210,10 +210,10 @@ else:
     # AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com'
 
     EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-    EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+    EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 465
-    EMAIL_HOST_USER = environ['AWS_SES_ACCESS_KEY_ID']
-    EMAIL_HOST_PASSWORD = environ['AWS_SES_SECRET_ACCESS_KEY']
+    EMAIL_HOST_USER = environ['GMAIL_USER']
+    EMAIL_HOST_PASSWORD = environ['GMAIL_PASSWORD']
     # Run the site over SSL
     #MIDDLEWARE_CLASSES = (
     #    'djangosecure.middleware.SecurityMiddleware',
