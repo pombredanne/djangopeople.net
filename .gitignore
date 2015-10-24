@@ -5,6 +5,8 @@ settings.py
 *.pyc
 .DS_Store
 prod.py
+.idea/
+grunt
 
 # emacs autosave and lock files
 \#*\#
