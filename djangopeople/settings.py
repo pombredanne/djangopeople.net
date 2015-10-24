@@ -4,9 +4,16 @@ import os
 from django.core.urlresolvers import reverse_lazy
 from django.utils.six.moves.urllib import parse
 
+
+try:
+    from prod import environ
+    environ.update(os.environ.__dict__)
+except ImportError:
+    environ = os.environ
+
 OUR_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-DEBUG = bool(os.environ.get('DEBUG', False))
+DEBUG = bool(environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 # OpenID settings
@@ -18,7 +25,7 @@ FORCE_LOWERCASE_TAGS = True
 
 ADMINS = MANAGERS = ()
 
-DATABASES = {'default': dj_database_url.config()}
+DATABASES = {'default': dj_database_url.config(default=environ['DATABASE_URL'])}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -59,13 +66,13 @@ USE_I18N = True
 # Absolute path to the directory where static media will be collected.
 STATIC_ROOT = os.path.join(OUR_ROOT, 'static')
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = environ['SECRET_KEY']
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 # Password used by the IRC bot for the API
-API_PASSWORD = os.environ['API_PASSWORD']
+API_PASSWORD = environ['API_PASSWORD']
 
 if DEBUG:
     TEMPLATE_LOADERS = (
@@ -81,9 +88,9 @@ else:
     )
 
 MIDDLEWARE_CLASSES = (
-    'djangopeople.djangopeople.middleware.CanonicalDomainMiddleware',
+    # 'djangopeople.djangopeople.middleware.CanonicalDomainMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'djangopeople.djangopeople.middleware.RemoveWWW',
+    # 'djangopeople.djangopeople.middleware.RemoveWWW',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -91,10 +98,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
-    'djangopeople.djangopeople.middleware.NoDoubleSlashes',
+    # 'djangopeople.djangopeople.middleware.NoDoubleSlashes',
 )
 
-if 'SENTRY_DSN' in os.environ:
+if 'SENTRY_DSN' in environ:
     MIDDLEWARE_CLASSES += (
         'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     )
@@ -134,7 +141,7 @@ INSTALLED_APPS = (
     'sekizai',
 )
 
-if 'SENTRY_DSN' in os.environ:
+if 'SENTRY_DSN' in environ:
     INSTALLED_APPS += (
         'raven.contrib.django',
     )
@@ -177,13 +184,13 @@ LOGGING = {
     },
 }
 
-GEONAMES_USERNAME = os.environ.get('GEONAMES_USERNAME', 'brutasse')
+GEONAMES_USERNAME = environ.get('GEONAMES_USERNAME', 'brutasse')
 
-if 'CANONICAL_HOSTNAME' in os.environ:
-    CANONICAL_HOSTNAME = os.environ['CANONICAL_HOSTNAME']
+if 'CANONICAL_HOSTNAME' in environ:
+    CANONICAL_HOSTNAME = environ['CANONICAL_HOSTNAME']
     ALLOWED_HOSTS = [CANONICAL_HOSTNAME]
 
-SERVER_EMAIL = DEFAULT_FROM_EMAIL = os.environ['FROM_EMAIL']
+SERVER_EMAIL = DEFAULT_FROM_EMAIL = environ['FROM_EMAIL']
 
 SESSION_SERIALIZER = 'djangopeople.serializers.JSONSerializer'
 
@@ -191,31 +198,31 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'django_ses.SESBackend'
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
+    AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_KEY']
+    AWS_STORAGE_BUCKET_NAME = environ['AWS_BUCKET_NAME']
     AWS_QUERYSTRING_AUTH = False
     STATICFILES_STORAGE = 'djangopeople.s3storage.S3HashedFilesStorage'
     STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 
     # Run the site over SSL
-    MIDDLEWARE_CLASSES = (
-        'djangosecure.middleware.SecurityMiddleware',
-    ) + MIDDLEWARE_CLASSES
-    SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_SECURE = True
+    #MIDDLEWARE_CLASSES = (
+    #    'djangosecure.middleware.SecurityMiddleware',
+    #) + MIDDLEWARE_CLASSES
+    #SESSION_COOKIE_SECURE = True
+    #SESSION_COOKIE_HTTPONLY = True
+    #CSRF_COOKIE_SECURE = True
 
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_SECONDS = 2592000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_FRAME_DENY = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    #SECURE_SSL_REDIRECT = True
+    #SECURE_HSTS_SECONDS = 2592000
+    #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    #SECURE_FRAME_DENY = True
+    #SECURE_CONTENT_TYPE_NOSNIFF = True
+    #SECURE_BROWSER_XSS_FILTER = True
+    #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-if 'REDISTOGO_URL' in os.environ:
-    redis_url = parse.urlparse(os.environ['REDISTOGO_URL'])
+if 'REDISTOGO_URL' in environ:
+    redis_url = parse.urlparse(environ['REDISTOGO_URL'])
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
@@ -224,7 +231,7 @@ if 'REDISTOGO_URL' in os.environ:
                 'DB': 0,
                 'PASSWORD': redis_url.password,
             },
-            'VERSION': os.environ.get('CACHE_VERSION', 0),
+            'VERSION': environ.get('CACHE_VERSION', 0),
         },
     }
 

@@ -4,6 +4,7 @@ media
 settings.py
 *.pyc
 .DS_Store
+prod.py
 
 # emacs autosave and lock files
 \#*\#
