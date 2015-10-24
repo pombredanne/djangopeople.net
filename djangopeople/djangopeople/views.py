@@ -16,6 +16,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from django.views.decorators.cache import cache_page
 
 from password_reset.views import Recover
 from tagging.models import Tag, TaggedItem
@@ -68,7 +69,8 @@ class IndexView(generic.TemplateView):
             'home': True,
         })
         return ctx
-index = IndexView.as_view()
+
+index = cache_page(60 * 10)(IndexView.as_view())
 
 
 class AboutView(generic.TemplateView):
