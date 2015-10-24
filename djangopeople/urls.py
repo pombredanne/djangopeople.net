@@ -47,24 +47,24 @@ urlpatterns = patterns(
     url(r'^static/img/.*', gone),
 
     #openid stuff
-    url(
-        r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
-            'sreg': 'email,nickname,fullname',
-            'redirect_to': '/openid/complete/',
-        }, name='openid_begin'),
-    url(r'^openid/complete/$',
-        'djangopeople.django_openidconsumer.views.complete',
-        name='openid_complete'),
-
-    url(r'^openid/whatnext/$', views.openid_whatnext, name='openid_whatnext'),
-
-    url(r'^openid/signout/$',
-        'djangopeople.django_openidconsumer.views.signout',
-        name='openid_signout'),
-
-    url(r'^openid/associations/$',
-        'djangopeople.django_openidauth.views.associations',
-        name='openid_associations'),
+    # url(
+    #     r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
+    #         'sreg': 'email,nickname,fullname',
+    #         'redirect_to': '/openid/complete/',
+    #     }, name='openid_begin'),
+    # url(r'^openid/complete/$',
+    #     'djangopeople.django_openidconsumer.views.complete',
+    #     name='openid_complete'),
+    #
+    # url(r'^openid/whatnext/$', views.openid_whatnext, name='openid_whatnext'),
+    #
+    # url(r'^openid/signout/$',
+    #     'djangopeople.django_openidconsumer.views.signout',
+    #     name='openid_signout'),
+    #
+    # url(r'^openid/associations/$',
+    #     'djangopeople.django_openidauth.views.associations',
+    #     name='openid_associations'),
 
     url(r'^search/$', views.search, name='search'),
 

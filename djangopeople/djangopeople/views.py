@@ -29,7 +29,6 @@ from .forms import (SkillsForm, SignupForm, PortfolioForm, BioForm,
                     DeletionRequestForm, AccountDeletionForm)
 from .models import DjangoPerson, Country, User, Region, PortfolioSite
 
-from ..django_openidauth.models import associate_openid, UserOpenID
 from ..machinetags.utils import tagdict
 from ..machinetags.models import MachineTaggedItem
 
@@ -77,10 +76,8 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(AboutView, self).get_context_data(**kwargs)
-        users = User.objects.filter(useropenid__openid__startswith='http')
         ctx.update({
             'total_people': DjangoPerson.objects.count(),
-            'openid_users': users.distinct().count(),
             'countries': Country.objects.top_countries(),
         })
         return ctx
@@ -110,42 +107,12 @@ def redirect_to_logged_in_user_profile(request):
 
 def logout(request):
     auth.logout(request)
-    request.session['openids'] = []
     return redirect(reverse('index'))
 
 
 class RecoverView(Recover):
     search_fields = ['username']
 recover = RecoverView.as_view()
-
-
-class OpenIDWhatNext(generic.RedirectView):
-    """
-    If user is already logged in, send them to /openid/associations/
-    Otherwise, send them to the signup page
-    """
-    permanent = False
-
-    def get_redirect_url(self):
-        if not self.request.openid:
-            return reverse('index')
-
-        if self.request.user.is_anonymous():
-            # Have they logged in with an OpenID that matches an account?
-            try:
-                user_openid = UserOpenID.objects.get(
-                    openid=str(self.request.openid),
-                )
-            except UserOpenID.DoesNotExist:
-                return reverse('signup')
-
-            # Log the user in
-            user = user_openid.user
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            auth.login(self.request, user)
-            return reverse('user_profile', args=[user.username])
-        return reverse('openid_associations')
-openid_whatnext = OpenIDWhatNext.as_view()
 
 
 class SignupView(generic.FormView):
@@ -168,9 +135,6 @@ class SignupView(generic.FormView):
         user.first_name = form.cleaned_data['first_name']
         user.last_name = form.cleaned_data['last_name']
         user.save()
-
-        if self.request.openid:
-            associate_openid(user, str(self.request.openid))
 
         region = None
         if form.cleaned_data['region']:
@@ -214,42 +178,9 @@ class SignupView(generic.FormView):
     def get_success_url(self):
         return self.person.get_absolute_url()
 
-    def get_form_kwargs(self):
-        kwargs = super(SignupView, self).get_form_kwargs()
-        if self.request.openid:
-            kwargs['openid'] = self.request.openid
-        return kwargs
-
     def get_initial(self):
-        initial = super(SignupView, self).get_initial()
-        if self.request.openid and self.request.openid.sreg:
-            sreg = self.request.openid.sreg
-            first_name = ''
-            last_name = ''
-            username = ''
-            if sreg.get('fullname'):
-                bits = sreg['fullname'].split()
-                first_name = bits[0]
-                if len(bits) > 1:
-                    last_name = ' '.join(bits[1:])
-            # Find a not-taken username
-            if sreg.get('nickname'):
-                username = derive_username(sreg['nickname'])
+        super(SignupView, self).get_initial()
 
-            initial.update({
-                'first_name': first_name,
-                'last_name': last_name,
-                'email': sreg.get('email', ''),
-                'username': username,
-            })
-        return initial
-
-    def get_context_data(self, **kwargs):
-        ctx = super(SignupView, self).get_context_data(**kwargs)
-        ctx.update({
-            'openid': self.request.openid,
-        })
-        return ctx
 signup = SignupView.as_view()
 signup = transaction.atomic(signup)
 

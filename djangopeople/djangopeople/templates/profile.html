@@ -94,18 +94,18 @@
 				{% endif %}
 			</div>
 		{% endif %}
-		{% with person.portfoliosite_set.all as portfolio_set %}
-			{% if portfolio_set %}
-				<h2>{% blocktrans with name=person.user.first_name %}{{ name }}'s Django portfolio{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_portfolio" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
-				<p class="help">{% blocktrans with name=person.user.first_name %}Django projects {{ name }} has contributed to{% endblocktrans %}</p>
-				<ul class="siteList">
-					{% for site in portfolio_set %}
-						<li><a href="{{ site.url }}" class="url" rel="nofollow"><cite>{{ site.title }}</cite></a></li>
-					{% endfor %}
-				</ul>
-			{% else %}{% if is_owner %}<p>{% url "edit_portfolio" user.username as portfolio_url %}{% blocktrans %}<a href="{{ portfolio_url }}">Add some sites</a> to your portfolio{% endblocktrans %}</p>{% endif %}
-			{% endif %}
-		{% endwith %}
+{#		{% with person.portfoliosite_set.all as portfolio_set %}#}
+{#			{% if portfolio_set %}#}
+{#				<h2>{% blocktrans with name=person.user.first_name %}{{ name }}'s Django portfolio{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_portfolio" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>#}
+{#				<p class="help">{% blocktrans with name=person.user.first_name %}Django projects {{ name }} has contributed to{% endblocktrans %}</p>#}
+{#				<ul class="siteList">#}
+{#					{% for site in portfolio_set %}#}
+{#						<li><a href="{{ site.url }}" class="url" rel="nofollow"><cite>{{ site.title }}</cite></a></li>#}
+{#					{% endfor %}#}
+{#				</ul>#}
+{#			{% else %}{% if is_owner %}<p>{% url "edit_portfolio" user.username as portfolio_url %}{% blocktrans %}<a href="{{ portfolio_url }}">Add some sites</a> to your portfolio{% endblocktrans %}</p>{% endif %}#}
+{#			{% endif %}#}
+{#		{% endwith %}#}
 	</div>
 
 	<div class="secondary">

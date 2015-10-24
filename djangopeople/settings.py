@@ -17,7 +17,7 @@ DEBUG = bool(environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 # OpenID settings
-OPENID_REDIRECT_NEXT = reverse_lazy('openid_whatnext')
+# OPENID_REDIRECT_NEXT = reverse_lazy('openid_whatnext')
 LOGIN_URL = reverse_lazy('login')
 
 # Tagging settings
@@ -96,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
+    # 'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     # 'djangopeople.djangopeople.middleware.NoDoubleSlashes',
 )
@@ -132,8 +132,8 @@ INSTALLED_APPS = (
     'djangosecure',
     'tagging',
 
-    'djangopeople.django_openidconsumer',
-    'djangopeople.django_openidauth',
+    # 'djangopeople.django_openidconsumer',
+    # 'djangopeople.django_openidauth',
     'djangopeople.djangopeople',
     'djangopeople.machinetags',
 
@@ -192,7 +192,7 @@ if 'CANONICAL_HOSTNAME' in environ:
 
 SERVER_EMAIL = DEFAULT_FROM_EMAIL = environ['FROM_EMAIL']
 
-SESSION_SERIALIZER = 'djangopeople.serializers.JSONSerializer'
+# SESSION_SERIALIZER = 'djangopeople.serializers.JSONSerializer'
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
