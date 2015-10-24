@@ -204,7 +204,9 @@ else:
     AWS_QUERYSTRING_AUTH = False
     STATICFILES_STORAGE = 'djangopeople.s3storage.S3HashedFilesStorage'
     STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-
+    AWS_SES_ACCESS_KEY_ID = environ['AWS_SES_ACCESS_KEY_ID']
+    AWS_SES_SECRET_ACCESS_KEY = environ['AWS_SES_SECRET_ACCESS_KEY']
+ 
     # Run the site over SSL
     #MIDDLEWARE_CLASSES = (
     #    'djangosecure.middleware.SecurityMiddleware',
