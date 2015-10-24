@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>{% block title %}{% endblock %} Ukrainian Neighbour</title>
+		<title>{% block title %}{% endblock %} All Ukrainians</title>
 		<link rel="shortcut icon" href="{% static "djangopeople/img/favicon.ico" %}">
 		<link rel="stylesheet" href="{% static "djangopeople/css/styles.css" %}" type="text/css" media="all" charset="utf-8">
 		{% render_block "css" %}
@@ -40,7 +40,7 @@
 		{% endif %}
 	</div>
 	<div class="header content">
-		{% block header %}<h1>{% trans "Ukrainian Neighbour" %}</h1>{% endblock %}
+		{% block header %}<h1>{% trans "All Ukrainians" %}</h1>{% endblock %}
 		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %} Discover Ukrainian people that live near your and get in touch. {% endblocktrans %}</h2>{% endif %}{% endblock %}
 	</div>
 	{% block map %}{% endblock %}
@@ -52,7 +52,7 @@
 </div>
 
 <div class="footer">
-	This a fork of <a href="https://people.djangoproject.com/">Django People</a> project. Was enhanced for Ukrainian community by <a href="http://polinom.github.io/">POLINOM</a> Team
+	© 2015 All Ukrainians
 </div>
 
 {% if debug %}
