@@ -244,6 +244,15 @@ if 'REDISTOGO_URL' in environ:
         },
     }
 
+
+if 'MEMCACHE_URL' in environ:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': environ['MEMCACHED_URL'],
+        }
+    }
+
 try:
     import debug_toolbar  # noqa
 except ImportError:
