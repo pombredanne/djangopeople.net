@@ -70,7 +70,7 @@ class IndexView(generic.TemplateView):
         })
         return ctx
 
-index = cache_page(60 * 10)(IndexView.as_view())
+index = IndexView.as_view()
 
 
 class AboutView(generic.TemplateView):
@@ -83,7 +83,8 @@ class AboutView(generic.TemplateView):
             'countries': Country.objects.top_countries(),
         })
         return ctx
-about = AboutView.as_view()
+
+about = cache_page(24 * 60 * 60)(AboutView.as_view())
 
 
 class RecentView(generic.TemplateView):
