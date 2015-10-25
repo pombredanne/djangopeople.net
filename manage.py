@@ -9,6 +9,8 @@ except ImportError:
 
 
 if __name__ == "__main__":
+    
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djangopeople.settings")
 
     if envdir is not None:
         if 'test' in sys.argv:
