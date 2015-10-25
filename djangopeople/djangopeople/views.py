@@ -59,12 +59,11 @@ class IndexView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         people = DjangoPerson.objects.all().select_related()
-        people = people.order_by('-id')[:100]
+        people = list(people.order_by('-id')[:200])
         ctx = super(IndexView, self).get_context_data(**kwargs)
         ctx.update({
             'people_list': people,
             'people_list_limited': people[:4],
-            'total_people': DjangoPerson.objects.count(),
             'countries': Country.objects.top_countries(),
             'home': True,
         })

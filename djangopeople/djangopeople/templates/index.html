@@ -19,7 +19,8 @@
 {% endblock %}
 
 {% block content %}
-	<p class="mapnote">{% blocktrans with counter=people_list_limited|length %}Showing {{ counter }} recent signups (out of {{ total_people }}){% endblocktrans %}{% if user.is_anonymous %} - {% url "signup" as signup_url %}{% blocktrans %}if you're a Ukrainian living abroad, why not <a href="{{ signup_url }}">add yourself</a> to the site?{% endblocktrans %}{% endif %}</p>
+    <p class="mapnote">{% blocktrans with counter=people_list_limited|length %}Showing {{ counter }} recent signups {% endblocktrans %}{% if user.is_anonymous %} - {% url "signup" as signup_url %}{% blocktrans %}if you're a Ukrainian living abroad, why not <a href="{{ signup_url }}">add yourself</a> to the site?{% endblocktrans %}{% endif %}</p>
+
 	<ul class="detailsList split">
 		{% for person in people_list_limited %}
 			<li>
@@ -30,10 +31,14 @@
 		{% endfor %}
 	</ul>
 	<ul class="detailsList split">
-		{% for country in countries %}
+    {% load cache %}
+        {% cache 60 sidebar %}
+           {% for country in countries %}
 			<li>
 				<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static "djangopeople/img/blank.png" %}" class="flag iso-{{ country.iso_code|lower }}" alt="{{ country }}"></a> <a href="{% url "country_detail" country.iso_code|lower %}"><strong>{{ country }}</strong></a> {% blocktrans count counter=country.num_people %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}
 			</li>
-		{% endfor %}
+		   {% endfor %}
+        {% endcache %}
+
 	</ul>
 {% endblock %}

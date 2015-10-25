@@ -252,6 +252,13 @@ if 'MEMCACHE_URL' in environ:
             'LOCATION': environ['MEMCACHED_URL'],
         }
     }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
+        }
+    }
 
 try:
     import debug_toolbar  # noqa
@@ -261,3 +268,5 @@ else:
     INSTALLED_APPS += (
         'debug_toolbar',
     )
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
