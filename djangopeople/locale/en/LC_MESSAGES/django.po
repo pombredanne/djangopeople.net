@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-16 17:50+0000\n"
+"POT-Creation-Date: 2015-10-25 21:17-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:39
+#: settings.py:46
 msgid "English"
 msgstr ""
 
-#: settings.py:40
+#: settings.py:47
 msgid "Czech"
 msgstr ""
 
-#: settings.py:41
+#: settings.py:48
 msgid "Russian"
 msgstr ""
 
-#: settings.py:42
+#: settings.py:49
 msgid "French"
 msgstr ""
 
-#: settings.py:43
+#: settings.py:50
 msgid "Spanish"
 msgstr ""
 
-#: settings.py:44
+#: settings.py:51
 msgid "Hebrew"
 msgstr ""
 
-#: settings.py:45
+#: settings.py:52
 msgid "Portuguese"
 msgstr ""
 
-#: settings.py:46
+#: settings.py:53
 msgid "Slovak"
 msgstr ""
 
@@ -56,7 +56,6 @@ msgstr ""
 #: django_openidauth/models.py:9
 #: django_openidconsumer/templates/openid_failure.html:28
 #: django_openidconsumer/templates/openid_signin.html:26
-#: djangopeople/templates/login.html:78
 msgid "OpenID"
 msgstr ""
 
@@ -165,7 +164,7 @@ msgstr ""
 msgid "Drag and zoom the map until the crosshair matches your location"
 msgstr ""
 
-#: djangopeople/forms.py:114 djangopeople/templates/base.html:35
+#: djangopeople/forms.py:114 djangopeople/templates/base.html:60
 msgid "Username"
 msgstr ""
 
@@ -182,7 +181,7 @@ msgid "E-mail"
 msgstr ""
 
 #: djangopeople/forms.py:119 djangopeople/forms.py:551
-#: djangopeople/templates/base.html:35
+#: djangopeople/templates/base.html:60
 msgid "Password"
 msgstr ""
 
@@ -244,49 +243,6 @@ msgstr ""
 
 #: djangopeople/forms.py:150
 msgid "Noone can ever see my email address"
-msgstr ""
-
-#: djangopeople/forms.py:154 djangopeople/forms.py:378
-#: djangopeople/templates/edit_finding.html:78
-msgid "IM privacy"
-msgstr ""
-
-#: djangopeople/forms.py:156
-msgid "Anyone can see my IM details"
-msgstr ""
-
-#: djangopeople/forms.py:157
-msgid "Only logged-in users can see my IM details"
-msgstr ""
-
-#: djangopeople/forms.py:161 djangopeople/forms.py:385
-#: djangopeople/templates/edit_finding.html:83
-msgid "IRC tracking"
-msgstr ""
-
-#: djangopeople/forms.py:163
-msgid "Keep track of the last time I was seen on IRC (requires your IRC nick)"
-msgstr ""
-
-#: djangopeople/forms.py:165
-msgid "Don't record the last time I was seen on IRC"
-msgstr ""
-
-#: djangopeople/forms.py:169 djangopeople/forms.py:393
-#: djangopeople/templates/edit_finding.html:36
-msgid "Looking for work?"
-msgstr ""
-
-#: djangopeople/forms.py:171
-msgid "Not looking for work at the moment"
-msgstr ""
-
-#: djangopeople/forms.py:172
-msgid "Looking for freelance work"
-msgstr ""
-
-#: djangopeople/forms.py:173
-msgid "Looking for full-time work"
 msgstr ""
 
 #: djangopeople/forms.py:177
@@ -503,7 +459,7 @@ msgstr ""
 msgid "Country sites"
 msgstr ""
 
-#: djangopeople/views.py:562
+#: djangopeople/views.py:495
 #, python-format
 msgid "No Tag found matching \"%s\"."
 msgstr ""
@@ -525,139 +481,67 @@ msgid ""
 "Internal server error. This has been reported to the site administrator."
 msgstr ""
 
-#: djangopeople/templates/about.html:4
+#: djangopeople/templates/about.html:4 djangopeople/templates/base.html:44
 msgid "About"
 msgstr ""
 
 #: djangopeople/templates/about.html:9
-msgid "About Django People"
+msgid "About All Ukrainians"
 msgstr ""
 
-#: djangopeople/templates/about.html:14
-#, python-format
-msgid ""
-"Django People lists %(count)s <a href=\"https://www.djangoproject.com/"
-"\">Django</a> developers from around the world, in %(countries)s different "
-"countries. The aim of the site is to help Django developers find like-minded "
-"souls near them, and hopefully kick-start some local meet-ups and user "
-"groups."
+#: djangopeople/templates/base.html:43
+msgid "Home"
 msgstr ""
 
-#: djangopeople/templates/about.html:16
-msgid ""
-"The site was originally built and open-sourced by <a href=\"/simon/\">Simon "
-"Willison</a> and <a href=\"/natbat/\">Natalie Downe</a>. The code is <a href="
-"\"https://github.com/brutasse/djangopeople\">available on github</a>, you "
-"can post feedback and bug reports on the repository's <a href=\"https://"
-"github.com/brutasse/djangopeople/issues\">issues page</a>."
+#: djangopeople/templates/base.html:49
+msgid "Sign Up"
 msgstr ""
 
-#: djangopeople/templates/about.html:18
-msgid "Colophon"
+#: djangopeople/templates/base.html:52
+msgid "Your Profile"
 msgstr ""
 
-#: djangopeople/templates/about.html:20
-msgid ""
-"Country data and location lookups come from <a href=\"http://www.geonames."
-"org/\">GeoNames</a>, while the maps themselves are from <a href=\"http://www."
-"openstreetmap.org\">OpenStreetMap</a> and powered by <a href=\"http://"
-"leaflet.cloudmade.com/\">Leaflet</a>. Country flags and icons are by <a href="
-"\"http://famfamfam.com/lab/icons/\">Mark James</a>; US state flags come <a "
-"href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S._states\" title=\"Flags "
-"of the U.S. states\">from Wikipedia</a>. Profile pictures come from <a href="
-"\"http://en.gravatar.com/\">Gravatar</a>."
+#: djangopeople/templates/base.html:53
+msgid "Your Account"
 msgstr ""
 
-#: djangopeople/templates/about.html:22
-#, python-format
-msgid ""
-"The site uses <a href=\"http://code.google.com/p/django-tagging/\">django-"
-"tagging</a> by <a href=\"/insin/\">Jonathan Buchanan</a> for the <a href=\"/"
-"skills/\">skills feature</a>. <a href=\"http://simonwillison.net/2008/Jan/24/"
-"upgrade/\" title=\"Django People: OpenID and microformats\">OpenID support</"
-"a> (used by %(openid_users)s people) depends on <a href=\"http://"
-"openidenabled.com/python-openid/\">python-openid</a> (version 2.2.5)  and <a "
-"href=\"http://code.google.com/p/django-openid/\">django-openid</a>."
-msgstr ""
-
-#: djangopeople/templates/about.html:24
-msgid ""
-"Deployment is <a href=\"http://gunicorn.org\">gunicorn</a>, hosted on <a "
-"href=\"http://www.heroku.com/\">Heroku</a>."
-msgstr ""
-
-#: djangopeople/templates/about.html:26
-msgid "A Django joint."
-msgstr ""
-
-#: djangopeople/templates/base.html:18
-msgid "home"
-msgstr ""
-
-#: djangopeople/templates/base.html:19
-msgid "about"
-msgstr ""
-
-#: djangopeople/templates/base.html:20
-msgid "search"
-msgstr ""
-
-#: djangopeople/templates/base.html:24
-msgid "sign up as a django person"
-msgstr ""
-
-#: djangopeople/templates/base.html:27
+#: djangopeople/templates/base.html:54
 #, python-format
 msgid "You are logged in as <strong>%(user)s</strong>"
 msgstr ""
 
-#: djangopeople/templates/base.html:28
-msgid "your profile"
+#: djangopeople/templates/base.html:55
+msgid "Log Out"
 msgstr ""
 
-#: djangopeople/templates/base.html:29
-msgid "your account"
+#: djangopeople/templates/base.html:60
+msgid "Log In"
 msgstr ""
 
-#: djangopeople/templates/base.html:30
-msgid "log out"
-msgstr ""
-
-#: djangopeople/templates/base.html:35 djangopeople/templates/login.html:4
-#: djangopeople/templates/login.html:9 djangopeople/templates/login.html:68
-msgid "Log in"
-msgstr ""
-
-#: djangopeople/templates/base.html:37
+#: djangopeople/templates/base.html:62
 #, python-format
 msgid "Or <a href=\"%(openid_url)s\">log in with <strong>OpenID</strong>"
 msgstr ""
 
-#: djangopeople/templates/base.html:43
-msgid "Django People"
+#: djangopeople/templates/base.html:68
+msgid "All Ukrainians"
 msgstr ""
 
-#: djangopeople/templates/base.html:44
-msgid ""
-"Discover users of the <a href=\"https://www.djangoproject.com/\">Django Web "
-"framework</a> near you"
-msgstr ""
-
-#: djangopeople/templates/base.html:55
-msgid "Hosted on <span class=\"heroku\">Heroku</span>"
+#: djangopeople/templates/base.html:69
+msgid " Discover Ukrainian people that live near your and get in touch. "
 msgstr ""
 
 #: djangopeople/templates/country.html:28
 #: djangopeople/templates/country.html:30
 #, python-format
-msgid "%(counter)s Django person"
-msgid_plural "%(counter)s Django people"
+msgid "%(counter)s Ukrainian person"
+msgid_plural "%(counter)s Ukrainian people"
 msgstr[0] ""
 msgstr[1] ""
 
 #: djangopeople/templates/country.html:45
 #, python-format
-msgid "Django community sites in %(country)s"
+msgid "Ukrainian community sites in %(country)s"
 msgstr ""
 
 #: djangopeople/templates/country.html:56
@@ -665,7 +549,7 @@ msgstr ""
 msgid "Page %(num)s of %(total)s"
 msgstr ""
 
-#: djangopeople/templates/country.html:82 djangopeople/templates/index.html:35
+#: djangopeople/templates/country.html:82 djangopeople/templates/index.html:38
 #: djangopeople/templates/irc_active.html:8
 #: djangopeople/templates/skills.html:20
 #, python-format
@@ -793,10 +677,6 @@ msgstr ""
 msgid "Change your privacy settings"
 msgstr ""
 
-#: djangopeople/templates/edit_account.html:16
-msgid "Add sites to your portfolio"
-msgstr ""
-
 #: djangopeople/templates/edit_account.html:17
 #: djangopeople/templates/edit_password.html:3
 #: djangopeople/templates/edit_password.html:8
@@ -812,46 +692,6 @@ msgstr ""
 
 #: djangopeople/templates/edit_account.html:18
 msgid "Delete your account"
-msgstr ""
-
-#: djangopeople/templates/edit_account.html:24
-#, python-format
-msgid ""
-"You have %(counter)s OpenID associated with your account. <a href="
-"\"%(openid_url)s\">Manage your OpenID</a>"
-msgid_plural ""
-"You have %(counter)s OpenIDs associated with your account. <a href="
-"\"%(openid_url)s\">Manage your OpenIDs</a>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: djangopeople/templates/edit_account.html:27
-#, python-format
-msgid ""
-"If you have an <a href=\"http://openid.net/\">OpenID</a>, you can <a href="
-"\"%(openid_url)s\">associate it with your account</a>. This will allow you "
-"to log in using your OpenID instead of your password."
-msgstr ""
-
-#: djangopeople/templates/edit_account.html:31
-msgid "Advanced: Use your profile page as an OpenID"
-msgstr ""
-
-#: djangopeople/templates/edit_account.html:34
-msgid ""
-"If you already have an OpenID, you can configure your Django People profile "
-"page to delegate to it. This means you'll be able to use your profile page "
-"as an OpenID, without having to sign in to Django People first."
-msgstr ""
-
-#: djangopeople/templates/edit_account.html:37
-msgid ""
-"Read <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">more about "
-"delegation</a> to learn how to use this form."
-msgstr ""
-
-#: djangopeople/templates/edit_account.html:42
-msgid "Update OpenID delegation"
 msgstr ""
 
 #: djangopeople/templates/edit_bio.html:3
@@ -895,11 +735,6 @@ msgstr ""
 msgid "Instant messaging"
 msgstr ""
 
-#: djangopeople/templates/edit_finding.html:53
-#: djangopeople/templates/signup.html:116
-msgid "Use any instant messaging software?"
-msgstr ""
-
 #: djangopeople/templates/edit_finding.html:63
 msgid "Privacy settings"
 msgstr ""
@@ -909,6 +744,14 @@ msgstr ""
 msgid ""
 "You can set your profile page not to show up in external search engine "
 "results (such as Google or Yahoo!)"
+msgstr ""
+
+#: djangopeople/templates/edit_finding.html:78
+msgid "IM privacy"
+msgstr ""
+
+#: djangopeople/templates/edit_finding.html:83
+msgid "IRC tracking"
 msgstr ""
 
 #: djangopeople/templates/edit_finding.html:88
@@ -973,13 +816,13 @@ msgstr ""
 
 #: djangopeople/templates/index.html:22
 #, python-format
-msgid "Showing %(counter)s recent signups (out of %(total_people)s)"
+msgid "Showing %(counter)s recent signups "
 msgstr ""
 
 #: djangopeople/templates/index.html:22
 #, python-format
 msgid ""
-"if you're a Django developer, why not <a href=\"%(signup_url)s\">add "
+"if you're a Ukrainian living abroad, why not <a href=\"%(signup_url)s\">add "
 "yourself</a> to the site?"
 msgstr ""
 
@@ -997,24 +840,17 @@ msgstr ""
 msgid "<strong>%(nick)s</strong>, active %(since)s ago"
 msgstr ""
 
+#: djangopeople/templates/login.html:4 djangopeople/templates/login.html:9
+#: djangopeople/templates/login.html:68
+msgid "Log in"
+msgstr ""
+
 #: djangopeople/templates/login.html:53
 msgid "Your login attempt failed."
 msgstr ""
 
 #: djangopeople/templates/login.html:61
 msgid "Lost your password?"
-msgstr ""
-
-#: djangopeople/templates/login.html:72
-msgid "Or sign in with your OpenID"
-msgstr ""
-
-#: djangopeople/templates/login.html:81
-msgid "OpenID not working?"
-msgstr ""
-
-#: djangopeople/templates/login.html:84
-msgid "Log in with OpenID"
 msgstr ""
 
 #: djangopeople/templates/profile.html:42
@@ -1048,7 +884,6 @@ msgid "Finding %(name)s"
 msgstr ""
 
 #: djangopeople/templates/profile.html:76
-#: djangopeople/templates/profile.html:99
 msgid "(edit)"
 msgstr ""
 
@@ -1063,21 +898,6 @@ msgstr ""
 #: djangopeople/templates/profile.html:85
 #, python-format
 msgid "(active %(since)s ago)"
-msgstr ""
-
-#: djangopeople/templates/profile.html:99
-#, python-format
-msgid "%(name)s's Django portfolio"
-msgstr ""
-
-#: djangopeople/templates/profile.html:100
-#, python-format
-msgid "Django projects %(name)s has contributed to"
-msgstr ""
-
-#: djangopeople/templates/profile.html:106
-#, python-format
-msgid "<a href=\"%(portfolio_url)s\">Add some sites</a> to your portfolio"
 msgstr ""
 
 #: djangopeople/templates/profile.html:113
@@ -1125,27 +945,8 @@ msgstr ""
 msgid "No users found."
 msgstr ""
 
-#: djangopeople/templates/signup.html:4
+#: djangopeople/templates/signup.html:4 djangopeople/templates/signup.html:9
 msgid "Sign up"
-msgstr ""
-
-#: djangopeople/templates/signup.html:9
-msgid "Sign up as a Django Person"
-msgstr ""
-
-#: djangopeople/templates/signup.html:24
-#, python-format
-msgid ""
-"Got an <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s"
-"\">Sign up with your OpenID now!</a>"
-msgstr ""
-
-#: djangopeople/templates/signup.html:26
-#, python-format
-msgid ""
-"Your new account will be associated with with your OpenID: <strong class="
-"\"openid\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next="
-"%(signup_url)s\">don't associate</a>)"
 msgstr ""
 
 #: djangopeople/templates/signup.html:29
@@ -1176,8 +977,8 @@ msgstr ""
 
 #: djangopeople/templates/signup.html:147
 msgid ""
-"Tag yourself with your particular skills and interests, e.g. postgresql, "
-"nginx, css. Separate them with commas; spaces are allowed."
+"Tag yourself with your particular skills and interests, Separate them with "
+"commas; spaces are allowed."
 msgstr ""
 
 #: djangopeople/templates/signup.html:156
@@ -1186,8 +987,8 @@ msgstr ""
 
 #: djangopeople/templates/skill.html:8
 #, python-format
-msgid "%(counter)s Django Person mention this skill"
-msgid_plural "%(counter)s Django People mention this skill"
+msgid "%(counter)s Ukrainian Person mention this skill"
+msgid_plural "%(counter)s Ukrainian People mention this skill"
 msgstr[0] ""
 msgstr[1] ""
 
