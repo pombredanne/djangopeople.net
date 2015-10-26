@@ -47,7 +47,6 @@
 				<li{% block nav_li_class_account %}{% endblock %}><a href="{% url "edit_account" user.username %}">{% trans "Your Account" %}</a></li>
                 <li>{% blocktrans %}You are logged in as <strong>{{ user }}</strong>{% endblocktrans %}</li>
 				<li><a href="{% url "logout" %}">{% trans "Log Out" %}</a></li>
-                <li><div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div></li>
 			{% endif %}
 		</ul>
 		{% if not user.is_authenticated %}
@@ -62,6 +61,7 @@
 	<div class="header content">
 		{% block header %}<h1>{% trans "All Ukrainians" %}</h1>{% endblock %}
 		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %} Discover Ukrainian people that live near your and get in touch. {% endblocktrans %}</h2>{% endif %}{% endblock %}
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 	</div>
 	{% block map %}{% endblock %}
 	<div class="content">
