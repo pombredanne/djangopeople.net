@@ -12,6 +12,25 @@
 		{% block adder %}{% endblock %}
 	</head>
 <body{% block bodymeta %}{% endblock %} data-static-url="{{ STATIC_URL }}">
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1680776608858476',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="wrapper">
 	<div class="nav">
 		<ul>
@@ -28,6 +47,7 @@
 				<li{% block nav_li_class_account %}{% endblock %}><a href="{% url "edit_account" user.username %}">{% trans "Your Account" %}</a></li>
                 <li>{% blocktrans %}You are logged in as <strong>{{ user }}</strong>{% endblocktrans %}</li>
 				<li><a href="{% url "logout" %}">{% trans "Log Out" %}</a></li>
+                <li><div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div></li>
 			{% endif %}
 		</ul>
 		{% if not user.is_authenticated %}
@@ -52,7 +72,7 @@
 </div>
 
 <div class="footer">
-	© 2015 All Ukrainians
+	© 2015 All Ukrainianss
 </div>
 
 {% if debug %}
