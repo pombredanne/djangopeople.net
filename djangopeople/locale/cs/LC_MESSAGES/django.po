@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django People\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-18 12:54+0000\n"
+"POT-Creation-Date: 2015-10-25 21:17-0400\n"
 "PO-Revision-Date: 2012-09-09 09:23+0000\n"
 "Last-Translator: Vlada Macek <macek@sandbox.cz>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/django/language/"
@@ -19,35 +19,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: settings.py:44
+#: settings.py:46
 msgid "English"
 msgstr "Anglicky"
 
-#: settings.py:45
+#: settings.py:47
 msgid "Czech"
 msgstr ""
 
-#: settings.py:46
+#: settings.py:48
 msgid "Russian"
 msgstr ""
 
-#: settings.py:47
+#: settings.py:49
 msgid "French"
 msgstr ""
 
-#: settings.py:48
+#: settings.py:50
 msgid "Spanish"
 msgstr ""
 
-#: settings.py:49
+#: settings.py:51
 msgid "Hebrew"
 msgstr ""
 
-#: settings.py:50
+#: settings.py:52
 msgid "Portuguese"
 msgstr ""
 
-#: settings.py:51
+#: settings.py:53
 msgid "Slovak"
 msgstr ""
 
@@ -56,9 +56,8 @@ msgid "User"
 msgstr "Uživatel"
 
 #: django_openidauth/models.py:9
-#: django_openidconsumer/templates/openid_failure.html:27
-#: django_openidconsumer/templates/openid_signin.html:25
-#: djangopeople/templates/login.html:75
+#: django_openidconsumer/templates/openid_failure.html:28
+#: django_openidconsumer/templates/openid_signin.html:26
 msgid "OpenID"
 msgstr "OpenID"
 
@@ -79,32 +78,32 @@ msgid ""
 msgstr ""
 "%s nelze přiřadit k vašemu účtu, protože je již propojeno s jiným účtem"
 
-#: django_openidauth/views.py:105
+#: django_openidauth/views.py:107
 msgid "You need to set a password if you want to remove all of your OpenIDs"
 msgstr "Chcete-li odebrat všechna svoje OpenID, je třeba si nastavit heslo."
 
-#: django_openidauth/views.py:111
+#: django_openidauth/views.py:113
 #, python-format
 msgid "%s has been removed from your account"
 msgstr "%s bylo odebráno z vašeho účtu"
 
-#: django_openidauth/templates/openid_associations.html:2
-#: django_openidauth/templates/openid_associations.html:19
+#: django_openidauth/templates/openid_associations.html:3
+#: django_openidauth/templates/openid_associations.html:21
 msgid "OpenID associations"
 msgstr "Přiřazení OpenID"
 
-#: django_openidauth/templates/openid_associations.html:32
+#: django_openidauth/templates/openid_associations.html:34
 msgid "Your account is currently associated with the following OpenID:"
 msgid_plural "Your account is currently associated with the following OpenIDs:"
 msgstr[0] "Váš účet je v současnosti přiřazen k následujícímu OpenID:"
 msgstr[1] "Váš účet je v současnosti přiřazen k následujícím OpenID:"
 msgstr[2] "Váš účet je v současnosti přiřazen k následujícím OpenID:"
 
-#: django_openidauth/templates/openid_associations.html:35
+#: django_openidauth/templates/openid_associations.html:37
 msgid "Remove association"
 msgstr "Zrušit přiřazení"
 
-#: django_openidauth/templates/openid_associations.html:41
+#: django_openidauth/templates/openid_associations.html:43
 msgid ""
 "You are currently logged in with the following OpenID. Click \"associate\" "
 "to allow it to be used to sign in to your account."
@@ -121,15 +120,15 @@ msgstr[2] ""
 "V současnosti jste přihlášeni k následujícím OpenID. Chcete-li se pomocí "
 "nich přihlásit ke svému účtu, klepněte na \"přiřadit\"."
 
-#: django_openidauth/templates/openid_associations.html:44
+#: django_openidauth/templates/openid_associations.html:46
 msgid "Associate"
 msgstr "Přiřadit"
 
-#: django_openidauth/templates/openid_associations.html:50
+#: django_openidauth/templates/openid_associations.html:52
 msgid "To associate a new OpenID with this account, sign in with it here:"
 msgstr "Chcete-li k tomuto účtu přiřadit nové OpenID, přihlašte se k němu zde:"
 
-#: django_openidauth/templates/openid_associations.html:55
+#: django_openidauth/templates/openid_associations.html:57
 msgid "Authenticate and associate with this account"
 msgstr "Ověřit a přiřadit k tomuto účtu"
 
@@ -149,22 +148,22 @@ msgstr "Požadavek byl zrušen"
 msgid "Setup needed"
 msgstr "Je vyžadováno nastavení"
 
-#: django_openidconsumer/templates/openid_failure.html:3
+#: django_openidconsumer/templates/openid_failure.html:4
 msgid "Open ID failed, Sign in with your OpenID"
 msgstr "OpenID selhalo, přihlašte se pomocí svého OpenID"
 
-#: django_openidconsumer/templates/openid_failure.html:19
-#: django_openidconsumer/templates/openid_signin.html:3
-#: django_openidconsumer/templates/openid_signin.html:19
+#: django_openidconsumer/templates/openid_failure.html:9
+#: django_openidconsumer/templates/openid_signin.html:4
+#: django_openidconsumer/templates/openid_signin.html:9
 msgid "Sign in with your OpenID"
 msgstr "Přihlašte se pomocí svého OpenID"
 
-#: django_openidconsumer/templates/openid_failure.html:23
+#: django_openidconsumer/templates/openid_failure.html:24
 msgid "OpenID failed"
 msgstr "OpenID selhalo"
 
-#: django_openidconsumer/templates/openid_failure.html:31
-#: django_openidconsumer/templates/openid_signin.html:29
+#: django_openidconsumer/templates/openid_failure.html:32
+#: django_openidconsumer/templates/openid_signin.html:30
 msgid "Sign in"
 msgstr "Přihlásit se"
 
@@ -172,208 +171,167 @@ msgstr "Přihlásit se"
 msgid "#django IRC"
 msgstr "IRC kanál #django "
 
-#: djangopeople/forms.py:49
+#: djangopeople/forms.py:51
 msgid "Drag and zoom the map until the crosshair matches your location"
 msgstr "Táhněte a přibližujte mapu, dokud kříž neukazuje na vaši polohu"
 
-#: djangopeople/forms.py:112 djangopeople/templates/base.html:41
+#: djangopeople/forms.py:114 djangopeople/templates/base.html:60
 msgid "Username"
 msgstr "Uživatelské jméno"
 
-#: djangopeople/forms.py:114 djangopeople/forms.py:350
+#: djangopeople/forms.py:116 djangopeople/forms.py:357
 msgid "First name"
 msgstr "Křestní jméno"
 
-#: djangopeople/forms.py:115 djangopeople/forms.py:351
+#: djangopeople/forms.py:117 djangopeople/forms.py:358
 msgid "Last name"
 msgstr "Příjmení"
 
-#: djangopeople/forms.py:116 djangopeople/forms.py:352
+#: djangopeople/forms.py:118 djangopeople/forms.py:359
 msgid "E-mail"
 msgstr "E-mail"
 
-#: djangopeople/forms.py:117 djangopeople/forms.py:540
-#: djangopeople/templates/base.html:41
+#: djangopeople/forms.py:119 djangopeople/forms.py:551
+#: djangopeople/templates/base.html:60
 msgid "Password"
 msgstr "Heslo"
 
-#: djangopeople/forms.py:119
+#: djangopeople/forms.py:121
 msgid "Password (again)"
 msgstr "Heslo (znovu)"
 
-#: djangopeople/forms.py:123 djangopeople/models.py:124
+#: djangopeople/forms.py:125 djangopeople/models.py:124
 msgid "Bio"
 msgstr "Bio"
 
-#: djangopeople/forms.py:125 djangopeople/forms.py:353
-#: djangopeople/templates/edit_finding.html:34
+#: djangopeople/forms.py:127 djangopeople/forms.py:360
+#: djangopeople/templates/edit_finding.html:31
 msgid "Blog URL"
 msgstr "Adresa URL blogu"
 
-#: djangopeople/forms.py:127 djangopeople/forms.py:267
+#: djangopeople/forms.py:129 djangopeople/forms.py:274
 #: djangopeople/models.py:74 djangopeople/models.py:88
-#: djangopeople/models.py:127 djangopeople/models.py:260
-#: djangopeople/templates/edit_location.html:44
+#: djangopeople/models.py:127 djangopeople/models.py:258
+#: djangopeople/templates/edit_location.html:43
 msgid "Country"
 msgstr "Země"
 
-#: djangopeople/forms.py:130 djangopeople/forms.py:271
+#: djangopeople/forms.py:132 djangopeople/forms.py:278
 #: djangopeople/models.py:132
 msgid "Location"
 msgstr "Poloha"
 
-#: djangopeople/forms.py:132 djangopeople/forms.py:268
+#: djangopeople/forms.py:134 djangopeople/forms.py:275
 #: djangopeople/models.py:107 djangopeople/models.py:128
-#: djangopeople/templates/edit_location.html:59
+#: djangopeople/templates/edit_location.html:58
 msgid "Region"
 msgstr "Region"
 
-#: djangopeople/forms.py:135 djangopeople/forms.py:355
-#: djangopeople/templates/edit_finding.html:71
+#: djangopeople/forms.py:137 djangopeople/forms.py:362
+#: djangopeople/templates/edit_finding.html:68
 msgid "Search visibility"
 msgstr "Zobrazení ve vyhledávání"
 
-#: djangopeople/forms.py:138
+#: djangopeople/forms.py:140
 msgid "Allow search engines to index my profile page (recommended)"
 msgstr ""
 
-#: djangopeople/forms.py:139
+#: djangopeople/forms.py:141
 msgid "Don't allow search engines to index my profile page"
 msgstr ""
 
-#: djangopeople/forms.py:143
+#: djangopeople/forms.py:146
 #, fuzzy
 msgid "Email privacy"
 msgstr "Utajení e-mailu"
 
-#: djangopeople/forms.py:145
+#: djangopeople/forms.py:148
 msgid "Anyone can see my email address"
 msgstr ""
 
-#: djangopeople/forms.py:146
+#: djangopeople/forms.py:149
 msgid "Only logged-in users can see my email address"
 msgstr ""
 
-#: djangopeople/forms.py:147
+#: djangopeople/forms.py:150
 msgid "Noone can ever see my email address"
 msgstr ""
 
-#: djangopeople/forms.py:151 djangopeople/forms.py:371
-#: djangopeople/templates/edit_finding.html:81
-msgid "IM privacy"
-msgstr "Utajení IM"
-
-#: djangopeople/forms.py:153
-msgid "Anyone can see my IM details"
-msgstr ""
-
-#: djangopeople/forms.py:154
-msgid "Only logged-in users can see my IM details"
-msgstr ""
-
-#: djangopeople/forms.py:158 djangopeople/forms.py:378
-#: djangopeople/templates/edit_finding.html:86
-msgid "IRC tracking"
-msgstr "Sledování IRC"
-
-#: djangopeople/forms.py:160
-msgid "Keep track of the last time I was seen on IRC (requires your IRC nick)"
-msgstr ""
-
-#: djangopeople/forms.py:162
-msgid "Don't record the last time I was seen on IRC"
-msgstr ""
-
-#: djangopeople/forms.py:166 djangopeople/forms.py:386
-#: djangopeople/templates/edit_finding.html:39
-msgid "Looking for work?"
-msgstr "Hledání práce"
-
-#: djangopeople/forms.py:168
-msgid "Not looking for work at the moment"
-msgstr ""
-
-#: djangopeople/forms.py:169
-#, fuzzy
-msgid "Looking for freelance work"
-msgstr "Hledání práce"
-
-#: djangopeople/forms.py:170
-#, fuzzy
-msgid "Looking for full-time work"
-msgstr "Hledání práce"
-
-#: djangopeople/forms.py:174
+#: djangopeople/forms.py:177
 msgid "Your skills"
 msgstr "Vaše dovednosti"
 
-#: djangopeople/forms.py:182
+#: djangopeople/forms.py:185
 msgid "Password is required"
 msgstr "Je vyžadováno heslo"
 
-#: djangopeople/forms.py:189
+#: djangopeople/forms.py:192
 msgid "Passwords must match"
 msgstr "Zadaná hesla musí být totožná"
 
-#: djangopeople/forms.py:193
+#: djangopeople/forms.py:196
 msgid "That username is unavailable"
 msgstr "Toto uživatelské jméno není k dispozici"
 
-#: djangopeople/forms.py:217 djangopeople/forms.py:399
+#: djangopeople/forms.py:220 djangopeople/forms.py:406
 msgid "That e-mail is already in use"
 msgstr "Tato e-mailová adresa se už používá"
 
-#: djangopeople/forms.py:230 djangopeople/forms.py:300
+#: djangopeople/forms.py:224
+msgid "Please don't use a disposable email address."
+msgstr ""
+
+#: djangopeople/forms.py:237 djangopeople/forms.py:307
 msgid "The region you selected does not match the country"
 msgstr "Vybraný region neodpovídá zemi"
 
-#: djangopeople/forms.py:238
+#: djangopeople/forms.py:245
 msgid "Change skills"
 msgstr "Upravit dovednosti"
 
-#: djangopeople/forms.py:286
+#: djangopeople/forms.py:293
 msgid "The ISO code of the country you selected is invalid."
 msgstr "Kód ISO vámi vybrané země je neplatný."
 
-#: djangopeople/forms.py:363 djangopeople/templates/edit_finding.html:76
+#: djangopeople/forms.py:370 djangopeople/templates/edit_finding.html:73
 msgid "E-mail privacy"
 msgstr "Utajení e-mailu"
 
-#: djangopeople/forms.py:439
+#: djangopeople/forms.py:448
 #, python-format
 msgid "URL %d"
 msgstr "Adresa URL %d"
 
-#: djangopeople/forms.py:442
+#: djangopeople/forms.py:451
 #, python-format
 msgid "Title %d"
 msgstr "Nadpis %d"
 
-#: djangopeople/forms.py:472
+#: djangopeople/forms.py:483
 msgid "You need to provide a URL"
 msgstr "Je třeba zadat adresu URL."
 
-#: djangopeople/forms.py:478
+#: djangopeople/forms.py:489
 msgid "Current Password"
 msgstr "Současné heslo"
 
-#: djangopeople/forms.py:480
+#: djangopeople/forms.py:491
 msgid "New Password"
 msgstr "Nové heslo"
 
-#: djangopeople/forms.py:481
+#: djangopeople/forms.py:492
 msgid "New Password (again)"
 msgstr "Nové heslo (znovu)"
 
-#: djangopeople/forms.py:493
+#: djangopeople/forms.py:504
 msgid "Please submit your current password."
 msgstr "Zadejte své současné heslo."
 
-#: djangopeople/forms.py:504
+#: djangopeople/forms.py:515
 msgid "The passwords did not match."
 msgstr "Hesla nejsou stejná."
 
-#: djangopeople/forms.py:545
+#: djangopeople/forms.py:556
 msgid "Your password was invalid"
 msgstr "Heslo bylo neplatné"
 
@@ -445,15 +403,15 @@ msgstr "Kód"
 msgid "Flag"
 msgstr "Vlajka"
 
-#: djangopeople/models.py:108 djangopeople/templates/country.html:86
+#: djangopeople/models.py:108 djangopeople/templates/country.html:78
 msgid "Regions"
 msgstr "Regiony"
 
-#: djangopeople/models.py:130 djangopeople/templates/edit_location.html:49
+#: djangopeople/models.py:130 djangopeople/templates/edit_location.html:48
 msgid "Latitude"
 msgstr "Zeměpisná šířka"
 
-#: djangopeople/models.py:131 djangopeople/templates/edit_location.html:54
+#: djangopeople/models.py:131 djangopeople/templates/edit_location.html:53
 msgid "Longitude"
 msgstr "Zeměpisná délka"
 
@@ -485,230 +443,134 @@ msgstr "Djangista"
 msgid "Django people"
 msgstr "Djangisté"
 
-#: djangopeople/models.py:243 djangopeople/models.py:258
+#: djangopeople/models.py:241 djangopeople/models.py:256
 msgid "Title"
 msgstr "Nadpis"
 
-#: djangopeople/models.py:244 djangopeople/models.py:259
+#: djangopeople/models.py:242 djangopeople/models.py:257
 msgid "URL"
 msgstr "Adresa URL"
 
-#: djangopeople/models.py:246
+#: djangopeople/models.py:244
 msgid "Contributor"
 msgstr "Přispěvatel"
 
-#: djangopeople/models.py:252
+#: djangopeople/models.py:250
 msgid "Portfolio site"
 msgstr "Web portfolia"
 
-#: djangopeople/models.py:253
+#: djangopeople/models.py:251
 msgid "Portfolio sites"
 msgstr "Weby portfolia"
 
-#: djangopeople/models.py:266
+#: djangopeople/models.py:264
 msgid "Country site"
 msgstr "Web v zemi"
 
-#: djangopeople/models.py:267
+#: djangopeople/models.py:265
 msgid "Country sites"
 msgstr "Weby v zemi"
 
-#: djangopeople/views.py:553
+#: djangopeople/views.py:495
 #, python-format
 msgid "No Tag found matching \"%s\"."
 msgstr "\"%s\" - neodpovídá žádný tag."
 
-#: djangopeople/templates/404.html:3 djangopeople/templates/404.html.py:9
+#: djangopeople/templates/404.html:3 djangopeople/templates/404.html.py:6
 msgid "404 error"
 msgstr "Chyba 404"
 
-#: djangopeople/templates/404.html:13
+#: djangopeople/templates/404.html:10
 msgid "Page not found."
 msgstr "Stránka nenalezena."
 
-#: djangopeople/templates/500.html:3 djangopeople/templates/500.html.py:9
+#: djangopeople/templates/500.html:3 djangopeople/templates/500.html.py:6
 msgid "500 error"
 msgstr "Chyba 500"
 
-#: djangopeople/templates/500.html:13
+#: djangopeople/templates/500.html:10
 msgid ""
 "Internal server error. This has been reported to the site administrator."
 msgstr "Interní chyba serveru. Správce webu byl informován."
 
-#: djangopeople/templates/about.html:4
+#: djangopeople/templates/about.html:4 djangopeople/templates/base.html:44
 msgid "About"
 msgstr "O projektu"
 
 #: djangopeople/templates/about.html:9
-msgid "About Django People"
-msgstr "O projektu Djangisté"
-
-#: djangopeople/templates/about.html:14
-#, python-format
-msgid ""
-"Django People lists %(count)s <a href=\"https://www.djangoproject.com/"
-"\">Django</a> developers from around the world, in %(countries)s different "
-"countries. The aim of the site is to help Django developers find like-minded "
-"souls near them, and hopefully kick-start some local meet-ups and user "
-"groups."
+msgid "About All Ukrainians"
 msgstr ""
-"Projekt Djangisté (Django People\\) uvádí seznam %(count)s vývojářů "
-"používajících <a href=\"https://www.djangoproject.com/\">framework Django</"
-"a> z %(countries)s různých zemí celého světa. Cílem je pomoci těmto "
-"vývojářům nalézt v blízkosti zpřízněné duše a třeba rozjet místní odborná "
-"setkání a komunity."
 
-#: djangopeople/templates/about.html:16
-msgid ""
-"The site was originally built and open-sourced by <a href=\"/simon/\">Simon "
-"Willison</a> and <a href=\"/natbat/\">Natalie Downe</a>. The code is <a href="
-"\"https://github.com/brutasse/djangopeople\">available on github</a>, you "
-"can post feedback and bug reports on the repository's <a href=\"https://"
-"github.com/brutasse/djangopeople/issues\">issues page</a>."
+#: djangopeople/templates/base.html:43
+msgid "Home"
 msgstr ""
-"Tuto aplikaci původně vytvořili a zdrojový kód otevřeli <a href=\"/simon/"
-"\">Simon Willison</a> a <a href=\"/natbat/\">Natalie Downe</a>. Kód je <a "
-"href=\"https://github.com/brutasse/djangopeople\">k dispozici na githubu</"
-"a>, můžete dodat zpětnou vazbu a hlásit chyby na <a href=\"https://github."
-"com/brutasse/djangopeople/issues\">stránce Issues</a> repozitáře."
 
-#: djangopeople/templates/about.html:18
-msgid "Colophon"
-msgstr "Tiráž"
+#: djangopeople/templates/base.html:49
+#, fuzzy
+msgid "Sign Up"
+msgstr "Registrace"
 
-#: djangopeople/templates/about.html:20
-msgid ""
-"Country data and location lookups come from <a href=\"http://www.geonames."
-"org/\">GeoNames</a>, while the maps themselves are powered by the <a href="
-"\"https://developers.google.com/maps/\">Google Maps API</a>. Country flags "
-"and icons are by <a href=\"http://famfamfam.com/lab/icons/\">Mark James</a>; "
-"US state flags come <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S."
-"_states\" title=\"Flags of the U.S. states\">from Wikipedia</a>. Profile "
-"pictures come from <a href=\"http://en.gravatar.com/\">Gravatar</a>."
-msgstr ""
-"Vyhledávací tabulky zemí a poloh pocházejí z databáze <a href=\"http://www."
-"geonames.org/\">GeoNames</a>, mapy samotné jsou založené na <a href="
-"\"https://developers.google.com/maps/\">Google Maps API</a>.\n"
-"Vlajky zemí a ikonky jsou od <a href=\"http://famfamfam.com/lab/icons/"
-"\">Marka Jamese</a>; vlajky zemí USA pocházejí z <a href=\"http://en."
-"wikipedia.org/wiki/Flags_of_the_U.S._states\" title=\"Flags of the U.S. "
-"states\">from Wikipedia</a>. Obrázky v profilech se přebírají ze služby <a "
-"href=\"http://en.gravatar.com/\">Gravatar</a>."
+#: djangopeople/templates/base.html:52
+#, fuzzy
+msgid "Your Profile"
+msgstr "váš profil"
 
-#: djangopeople/templates/about.html:22
-#, python-format
-msgid ""
-"The site uses <a href=\"http://code.google.com/p/django-tagging/\">django-"
-"tagging</a> by <a href=\"/insin/\">Jonathan Buchanan</a> for the <a href=\"/"
-"skills/\">skills feature</a>. <a href=\"http://simonwillison.net/2008/Jan/24/"
-"upgrade/\" title=\"Django People: OpenID and microformats\">OpenID support</"
-"a> (used by %(openid_users)s people) depends on <a href=\"http://"
-"openidenabled.com/python-openid/\">python-openid</a> (version 2.2.5)  and <a "
-"href=\"http://code.google.com/p/django-openid/\">django-openid</a>."
-msgstr ""
-"Tato aplikace používá prvky <a href=\"http://code.google.com/p/django-"
-"tagging/\">django-tagging</a> od <a href=\"/insin/\">Jonathana Buchanana</a> "
-"(<a href=\"/skills/\">funkce dovednosti)</a>. <a href=\"http://simonwillison."
-"net/2008/Jan/24/upgrade/\" title=\"Django People: OpenID and microformats"
-"\">Podporu OpenID</a> (používá %(openid_users)s lidí) založenou na modulu <a "
-"href=\"http://openidenabled.com/python-openid/\">python-openid</a> (verze "
-"2.2.5)  a <a href=\"http://code.google.com/p/django-openid/\">django-openid</"
-"a>."
+#: djangopeople/templates/base.html:53
+#, fuzzy
+msgid "Your Account"
+msgstr "váš účet"
 
-#: djangopeople/templates/about.html:24
-msgid ""
-"Deployment is <a href=\"http://gunicorn.org\">gunicorn</a>, hosted on <a "
-"href=\"http://www.heroku.com/\">Heroku</a>."
-msgstr ""
-"Nasazeno je pomocí <a href=\"http://gunicorn.org\">serveru gunicorn</a> na "
-"hostingu <a href=\"http://www.heroku.com/\">Heroku</a>."
-
-#: djangopeople/templates/about.html:26
-msgid "A Django joint."
-msgstr "Společný projekt Djanga."
-
-#: djangopeople/templates/base.html:24
-msgid "home"
-msgstr "domů"
-
-#: djangopeople/templates/base.html:25
-msgid "about"
-msgstr "o projektu"
-
-#: djangopeople/templates/base.html:26
-msgid "search"
-msgstr "hledat"
-
-#: djangopeople/templates/base.html:30
-msgid "sign up as a django person"
-msgstr "registrovat se jako djangista"
-
-#: djangopeople/templates/base.html:33
+#: djangopeople/templates/base.html:54
 #, python-format
 msgid "You are logged in as <strong>%(user)s</strong>"
 msgstr "Přihlášený uživatel: <strong>%(user)s</strong>"
 
-#: djangopeople/templates/base.html:34
-msgid "your profile"
-msgstr "váš profil"
-
-#: djangopeople/templates/base.html:35
-msgid "your account"
-msgstr "váš účet"
-
-#: djangopeople/templates/base.html:36
-msgid "log out"
-msgstr "odhlásit"
-
-#: djangopeople/templates/base.html:41 djangopeople/templates/login.html:4
-#: djangopeople/templates/login.html:43 djangopeople/templates/login.html:65
-msgid "Log in"
+#: djangopeople/templates/base.html:55
+#, fuzzy
+msgid "Log Out"
 msgstr "Přihlásit"
 
-#: djangopeople/templates/base.html:43
+#: djangopeople/templates/base.html:60
+#, fuzzy
+msgid "Log In"
+msgstr "Přihlásit"
+
+#: djangopeople/templates/base.html:62
 #, python-format
 msgid "Or <a href=\"%(openid_url)s\">log in with <strong>OpenID</strong>"
 msgstr ""
 "Nebo <a href=\"%(openid_url)s\">se přihlašte pomocí <strong>OpenID</strong>"
 
-#: djangopeople/templates/base.html:49
-msgid "Django People"
-msgstr "Djangisté"
-
-#: djangopeople/templates/base.html:50
-msgid ""
-"Discover users of the <a href=\"https://www.djangoproject.com/\">Django Web "
-"framework</a> near you"
+#: djangopeople/templates/base.html:68
+msgid "All Ukrainians"
 msgstr ""
-"Odhalte okolní uživatele <a href=\"https://www.djangoproject.com/\">webového "
-"frameworku Django</a>"
 
-#: djangopeople/templates/base.html:61
-msgid "Hosted on <span class=\"heroku\">Heroku</span>"
-msgstr "Provozováno na systémech <span class=\"heroku\">Heroku</span>"
+#: djangopeople/templates/base.html:69
+msgid " Discover Ukrainian people that live near your and get in touch. "
+msgstr ""
 
-#: djangopeople/templates/country.html:36
-#: djangopeople/templates/country.html:38
-#, python-format
-msgid "%(counter)s Django person"
-msgid_plural "%(counter)s Django people"
+#: djangopeople/templates/country.html:28
+#: djangopeople/templates/country.html:30
+#, fuzzy, python-format
+msgid "%(counter)s Ukrainian person"
+msgid_plural "%(counter)s Ukrainian people"
 msgstr[0] "%(counter)s djangista"
 msgstr[1] "%(counter)s djangisté"
 msgstr[2] "%(counter)s djangistů"
 
-#: djangopeople/templates/country.html:53
-#, python-format
-msgid "Django community sites in %(country)s"
+#: djangopeople/templates/country.html:45
+#, fuzzy, python-format
+msgid "Ukrainian community sites in %(country)s"
 msgstr "Komunitní weby o Djangu v zemi %(country)s"
 
-#: djangopeople/templates/country.html:64
+#: djangopeople/templates/country.html:56
 #, python-format
 msgid "Page %(num)s of %(total)s"
 msgstr "Stránka %(num)s z %(total)s"
 
-#: djangopeople/templates/country.html:90 djangopeople/templates/index.html:46
+#: djangopeople/templates/country.html:82 djangopeople/templates/index.html:38
 #: djangopeople/templates/irc_active.html:8
-#: djangopeople/templates/skills.html:23
+#: djangopeople/templates/skills.html:20
 #, python-format
 msgid "%(counter)s person"
 msgid_plural "%(counter)s people"
@@ -716,23 +578,23 @@ msgstr[0] "%(counter)s člověk"
 msgstr[1] "%(counter)s lidé"
 msgstr[2] "%(counter)s lidí"
 
-#: djangopeople/templates/country_looking_for.html:3
+#: djangopeople/templates/country_looking_for.html:4
 #, python-format
 msgid "People in %(country)s looking for %(looking_for)s"
 msgstr "Lidé v zemi %(country)s hledající práci typu %(looking_for)s"
 
-#: djangopeople/templates/country_looking_for.html:9
+#: djangopeople/templates/country_looking_for.html:7
 #, python-format
 msgid "%(country)s, seeking %(looking_for)s work"
 msgstr "%(country)s, hledají práci typu %(looking_for)s"
 
 #: djangopeople/templates/country_sites.html:4
-#: djangopeople/templates/country_sites.html:10
+#: djangopeople/templates/country_sites.html:7
 #, python-format
 msgid "Sites in %(country)s"
 msgstr "Weby v zemi %(country)s"
 
-#: djangopeople/templates/country_sites.html:19
+#: djangopeople/templates/country_sites.html:16
 #, python-format
 msgid ""
 "<a href=\"%(url)s\">%(title)s</a> by <a href=\"%(author_url)s\">%(author)s</"
@@ -828,35 +690,31 @@ msgid "Account deletion on %(domain)s"
 msgstr "Odstranění účtu na systému %(domain)s"
 
 #: djangopeople/templates/edit_account.html:3
-#: djangopeople/templates/edit_account.html:11
+#: djangopeople/templates/edit_account.html:8
 msgid "Account settings"
 msgstr "Nastavení účtu"
 
-#: djangopeople/templates/edit_account.html:16
+#: djangopeople/templates/edit_account.html:13
 #: djangopeople/templates/edit_location.html:4
-#: djangopeople/templates/edit_location.html:18
+#: djangopeople/templates/edit_location.html:7
 msgid "Change your location"
 msgstr "Změnit polohu"
 
-#: djangopeople/templates/edit_account.html:17
+#: djangopeople/templates/edit_account.html:14
 msgid "Update your contact details"
 msgstr "Aktualizovat kontaktní údaje"
 
-#: djangopeople/templates/edit_account.html:18
+#: djangopeople/templates/edit_account.html:15
 msgid "Change your privacy settings"
 msgstr "Změnit nastavení soukromí"
 
-#: djangopeople/templates/edit_account.html:19
-msgid "Add sites to your portfolio"
-msgstr "Přidat weby do portfolia"
-
-#: djangopeople/templates/edit_account.html:20
+#: djangopeople/templates/edit_account.html:17
 #: djangopeople/templates/edit_password.html:3
-#: djangopeople/templates/edit_password.html:11
+#: djangopeople/templates/edit_password.html:8
 msgid "Change your password"
 msgstr "Změnit své heslo"
 
-#: djangopeople/templates/edit_account.html:20
+#: djangopeople/templates/edit_account.html:17
 #, python-format
 msgid ""
 "You do not have a password set - <a href=\"%(password_url)s\">set one now?</"
@@ -865,71 +723,16 @@ msgstr ""
 "Nyní nemáte nastavené heslo - <a href=\"%(password_url)s\">chcete jej "
 "nastavit?</a>"
 
-#: djangopeople/templates/edit_account.html:21
+#: djangopeople/templates/edit_account.html:18
 msgid "Delete your account"
 msgstr "Odstranit účet"
 
-#: djangopeople/templates/edit_account.html:27
-#, python-format
-msgid ""
-"You have %(counter)s OpenID associated with your account. <a href="
-"\"%(openid_url)s\">Manage your OpenID</a>"
-msgid_plural ""
-"You have %(counter)s OpenIDs associated with your account. <a href="
-"\"%(openid_url)s\">Manage your OpenIDs</a>"
-msgstr[0] ""
-"S vaším účtem máte přiřazeno %(counter)s OpenID. <a href=\"%(openid_url)s"
-"\">Spravovat své OpenID</a>"
-msgstr[1] ""
-"S vaším účtem máte přiřazena %(counter)s OpenID. <a href=\"%(openid_url)s"
-"\">Spravovat své OpenID</a>"
-msgstr[2] ""
-"S vaším účtem máte přiřazených %(counter)s OpenID. <a href=\"%(openid_url)s"
-"\">Spravovat své OpenID</a>"
-
-#: djangopeople/templates/edit_account.html:30
-#, python-format
-msgid ""
-"If you have an <a href=\"http://openid.net/\">OpenID</a>, you can <a href="
-"\"%(openid_url)s\">associate it with your account</a>. This will allow you "
-"to log in using your OpenID instead of your password."
-msgstr ""
-"Používáte-li systém <a href=\"http://openid.net/\">OpenID</a>, můžete si jej "
-"<a href=\"%(openid_url)s\">přiřadit ke svému účtu</a>. Umožní vám to "
-"přihlášení místo svého hesla."
-
-#: djangopeople/templates/edit_account.html:34
-msgid "Advanced: Use your profile page as an OpenID"
-msgstr "Pokročilé: Použijte stránku profilu jako OpenID"
-
-#: djangopeople/templates/edit_account.html:37
-msgid ""
-"If you already have an OpenID, you can configure your Django People profile "
-"page to delegate to it. This means you'll be able to use your profile page "
-"as an OpenID, without having to sign in to Django People first."
-msgstr ""
-"Pokud již máte své OpenID, můžete nastavit profilovou stránku projektu "
-"Djangisté na delegaci. To znamená, že budete moci použít svou stránku "
-"profilu jako OpenID bez nutnosti se nejdříve přihlásit k webu Djangisté."
-
-#: djangopeople/templates/edit_account.html:40
-msgid ""
-"Read <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">more about "
-"delegation</a> to learn how to use this form."
-msgstr ""
-"Více informací o tomto formuláři naleznete <a href=\"http://simonwillison."
-"net/2006/Dec/19/openid/\">v článku o delegacích</a>."
-
-#: djangopeople/templates/edit_account.html:45
-msgid "Update OpenID delegation"
-msgstr "Aktualizovat delegaci OpenID"
-
 #: djangopeople/templates/edit_bio.html:3
-#: djangopeople/templates/edit_bio.html:9
+#: djangopeople/templates/edit_bio.html:6
 msgid "Edit your bio"
 msgstr "Napište své bio"
 
-#: djangopeople/templates/edit_bio.html:14
+#: djangopeople/templates/edit_bio.html:11
 msgid ""
 "No HTML allowed, but paragraph tags will be added automatically and URLs "
 "will be turned in to links."
@@ -937,47 +740,42 @@ msgstr ""
 "Kód HTML není povolen, ale značky odstavců budou automaticky přidány a "
 "adresy URL budou převedeny na odkazy."
 
-#: djangopeople/templates/edit_bio.html:18
+#: djangopeople/templates/edit_bio.html:15
 msgid "Update bio"
 msgstr "Aktualizovat bio"
 
 #: djangopeople/templates/edit_finding.html:3
-#: djangopeople/templates/edit_finding.html:9
+#: djangopeople/templates/edit_finding.html:6
 msgid "Edit contact information"
 msgstr "Aktualizovat kontaktní údaje"
 
-#: djangopeople/templates/edit_finding.html:15
+#: djangopeople/templates/edit_finding.html:12
 msgid "Contact details"
 msgstr "Kontaktní údaje"
 
-#: djangopeople/templates/edit_finding.html:29
+#: djangopeople/templates/edit_finding.html:26
 msgid "E-mail *"
 msgstr "E-mail *"
 
-#: djangopeople/templates/edit_finding.html:43
+#: djangopeople/templates/edit_finding.html:40
 msgid "Other profiles"
 msgstr "Další profily"
 
-#: djangopeople/templates/edit_finding.html:45
-#: djangopeople/templates/signup.html:102
+#: djangopeople/templates/edit_finding.html:42
+#: djangopeople/templates/signup.html:105
 msgid "Got profiles on other sites? Enter the URLs below:"
 msgstr "Máte profily jinde? Zadejte níže jejich adresy URL:"
 
-#: djangopeople/templates/edit_finding.html:54
+#: djangopeople/templates/edit_finding.html:51
 msgid "Instant messaging"
 msgstr "Sítě IM"
 
-#: djangopeople/templates/edit_finding.html:56
-#: djangopeople/templates/signup.html:113
-msgid "Use any instant messaging software?"
-msgstr "Používáte nějaké programy pro IM?"
-
-#: djangopeople/templates/edit_finding.html:66
+#: djangopeople/templates/edit_finding.html:63
 msgid "Privacy settings"
 msgstr "Nastavení soukromí"
 
-#: djangopeople/templates/edit_finding.html:68
-#: djangopeople/templates/signup.html:125
+#: djangopeople/templates/edit_finding.html:65
+#: djangopeople/templates/signup.html:128
 msgid ""
 "You can set your profile page not to show up in external search engine "
 "results (such as Google or Yahoo!)"
@@ -985,12 +783,20 @@ msgstr ""
 "Můžete nastavit svou stránku profilu tak, že se nebude zobrazovat v "
 "externích vyhledávačích (například Google nebo Yahoo!)"
 
-#: djangopeople/templates/edit_finding.html:91
+#: djangopeople/templates/edit_finding.html:78
+msgid "IM privacy"
+msgstr "Utajení IM"
+
+#: djangopeople/templates/edit_finding.html:83
+msgid "IRC tracking"
+msgstr "Sledování IRC"
+
+#: djangopeople/templates/edit_finding.html:88
 msgid "Save changes"
 msgstr "Uložit změny"
 
-#: djangopeople/templates/edit_location.html:25
-#: djangopeople/templates/signup.html:57
+#: djangopeople/templates/edit_location.html:24
+#: djangopeople/templates/signup.html:60
 msgid ""
 "<strong>Zoom and center the map on your location</strong>. Your map location "
 "will be shared in public, so only make it as accurate as makes you "
@@ -999,12 +805,12 @@ msgstr ""
 "<strong>Přibližte a vycentrujte svou polohu na mapě</strong>. Vaše poloha na "
 "mapě bude zveřejněna, proto buďte jen tak přesní, jak vám to vyhovuje."
 
-#: djangopeople/templates/edit_location.html:38
+#: djangopeople/templates/edit_location.html:37
 msgid "Location *"
 msgstr "Poloha *"
 
-#: djangopeople/templates/edit_location.html:41
-#: djangopeople/templates/signup.html:75
+#: djangopeople/templates/edit_location.html:40
+#: djangopeople/templates/signup.html:78
 msgid ""
 "A short textual description of your location will be displayed on the site. "
 "We attempt to derive this from your position on the map, but you can "
@@ -1013,20 +819,20 @@ msgstr ""
 "Krátký textový popis vaší polohy bude zveřejněn na webu. Pokoušíme se tento "
 "text odvodit z nastavené polohy na mapě, ale můžete jej i upravit."
 
-#: djangopeople/templates/edit_location.html:63
+#: djangopeople/templates/edit_location.html:62
 msgid "Change location"
 msgstr "Změnit polohy"
 
-#: djangopeople/templates/edit_password.html:17
+#: djangopeople/templates/edit_password.html:14
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: djangopeople/templates/edit_portfolio.html:3
-#: djangopeople/templates/edit_portfolio.html:17
+#: djangopeople/templates/edit_portfolio.html:4
+#: djangopeople/templates/edit_portfolio.html:7
 msgid "Update your portfolio"
 msgstr "Aktualizovat portfolio"
 
-#: djangopeople/templates/edit_portfolio.html:21
+#: djangopeople/templates/edit_portfolio.html:23
 msgid ""
 "Show off the sites and projects you've personally built (or contributed to) "
 "using Django."
@@ -1034,16 +840,16 @@ msgstr ""
 "Předveďte weby a projekty, do kterých jste s pomocí Djanga osobně vytvořili "
 "nebo k nim přispěli."
 
-#: djangopeople/templates/edit_portfolio.html:24
+#: djangopeople/templates/edit_portfolio.html:26
 msgid "Update portfolio"
 msgstr "Aktualizovat portfolio"
 
 #: djangopeople/templates/edit_skills.html:3
-#: djangopeople/templates/edit_skills.html:9
+#: djangopeople/templates/edit_skills.html:6
 msgid "Update your skills"
 msgstr "Aktualizovat dovednosti"
 
-#: djangopeople/templates/edit_skills.html:15
+#: djangopeople/templates/edit_skills.html:12
 msgid "Update skills"
 msgstr "Aktualizovat dovednosti"
 
@@ -1051,27 +857,19 @@ msgstr "Aktualizovat dovednosti"
 msgid "Please correct the errors below and submit the form again."
 msgstr "Opravte níže popsane chyby a odešlete formulář znovu."
 
-#: djangopeople/templates/index.html:33
-#, python-format
-msgid "Showing %(counter)s recent signups (out of %(total_people)s)"
+#: djangopeople/templates/index.html:22
+#, fuzzy, python-format
+msgid "Showing %(counter)s recent signups "
 msgstr "Poslední %(counter)s registrace z celkem %(total_people)s"
 
-#: djangopeople/templates/index.html:33
-#, python-format
+#: djangopeople/templates/index.html:22
+#, fuzzy, python-format
 msgid ""
-"if you're a Django developer, why not <a href=\"%(signup_url)s\">add "
+"if you're a Ukrainian living abroad, why not <a href=\"%(signup_url)s\">add "
 "yourself</a> to the site?"
 msgstr ""
 "pokud vyvíjíte na Djangu, <a href=\"%(signup_url)s\">přidejte se</a> k "
 "projektu"
-
-#: djangopeople/templates/index.html:50
-msgid ""
-"Looking for a Django job? check out <a href=\"http://djangogigs.com/"
-"\">Djangogigs.com</a>"
-msgstr ""
-"Hledáte práci týkající se Djanga? <a href=\"http://djangogigs.com/"
-"\">Nevynechejte projekt Djangogigs.com</a>"
 
 #: djangopeople/templates/irc_active.html:4
 #: djangopeople/templates/irc_active.html:7
@@ -1087,95 +885,72 @@ msgstr "Nikdo teď není aktivní"
 msgid "<strong>%(nick)s</strong>, active %(since)s ago"
 msgstr "<strong>%(nick)s</strong>, aktivní před %(since)s"
 
-#: djangopeople/templates/login.html:50
+#: djangopeople/templates/login.html:4 djangopeople/templates/login.html:9
+#: djangopeople/templates/login.html:68
+msgid "Log in"
+msgstr "Přihlásit"
+
+#: djangopeople/templates/login.html:53
 msgid "Your login attempt failed."
 msgstr "Pokus o přihlášení selhal."
 
-#: djangopeople/templates/login.html:58
+#: djangopeople/templates/login.html:61
 msgid "Lost your password?"
 msgstr "Zapomněli jste heslo?"
 
-#: djangopeople/templates/login.html:69
-msgid "Or sign in with your OpenID"
-msgstr "Nebo se přihlašte pomocí OpenID"
-
-#: djangopeople/templates/login.html:78
-msgid "OpenID not working?"
-msgstr "Nefunguje OpenID?"
-
-#: djangopeople/templates/login.html:81
-msgid "Log in with OpenID"
-msgstr "Přihlásit se pomocí OpenID"
-
-#: djangopeople/templates/profile.html:53
+#: djangopeople/templates/profile.html:42
 msgid "(change)"
 msgstr "(změna)"
 
-#: djangopeople/templates/profile.html:66
+#: djangopeople/templates/profile.html:56
 msgid "(edit bio)"
 msgstr "(upravit bio)"
 
-#: djangopeople/templates/profile.html:66
+#: djangopeople/templates/profile.html:56
 msgid "Create your bio"
 msgstr "Vytvořit bio"
 
-#: djangopeople/templates/profile.html:73
+#: djangopeople/templates/profile.html:63
 msgid "(edit skills)"
 msgstr "(upravit dovednosti)"
 
-#: djangopeople/templates/profile.html:78
+#: djangopeople/templates/profile.html:68
 msgid "Save"
 msgstr "Uložit"
 
-#: djangopeople/templates/profile.html:81
+#: djangopeople/templates/profile.html:71
 #, python-format
 msgid "Looking for <strong>%(type)s</strong> work"
 msgstr "Poohlíží se po práci typu <strong>%(type)s</strong>"
 
-#: djangopeople/templates/profile.html:86
+#: djangopeople/templates/profile.html:76
 #, python-format
 msgid "Finding %(name)s"
 msgstr "Hledá se %(name)s"
 
-#: djangopeople/templates/profile.html:86
-#: djangopeople/templates/profile.html:109
+#: djangopeople/templates/profile.html:76
 msgid "(edit)"
 msgstr "(upravit)"
 
-#: djangopeople/templates/profile.html:88
+#: djangopeople/templates/profile.html:78
 msgid "email:"
 msgstr "email:"
 
-#: djangopeople/templates/profile.html:91
+#: djangopeople/templates/profile.html:81
 msgid "blog:"
 msgstr "blog:"
 
-#: djangopeople/templates/profile.html:95
+#: djangopeople/templates/profile.html:85
 #, python-format
 msgid "(active %(since)s ago)"
 msgstr "(aktivní před %(since)s)"
 
-#: djangopeople/templates/profile.html:109
-#, python-format
-msgid "%(name)s's Django portfolio"
-msgstr "Portfolio djangisty %(name)s"
-
-#: djangopeople/templates/profile.html:110
-#, python-format
-msgid "Django projects %(name)s has contributed to"
-msgstr "Projekty na Djangu s příspěvkem uživatele %(name)s"
-
-#: djangopeople/templates/profile.html:116
-#, python-format
-msgid "<a href=\"%(portfolio_url)s\">Add some sites</a> to your portfolio"
-msgstr "<a href=\"%(portfolio_url)s\">Přidejte weby</a> do svého portfolia"
-
-#: djangopeople/templates/profile.html:123
+#: djangopeople/templates/profile.html:113
 #, python-format
 msgid "People near %(name)s"
 msgstr "Lidé blízko djangisty %(name)s"
 
-#: djangopeople/templates/profile.html:130
+#: djangopeople/templates/profile.html:120
 #, python-format
 msgid "%(counter)s mile away"
 msgid_plural "%(counter)s miles away"
@@ -1183,21 +958,21 @@ msgstr[0] "%(counter)s míle daleko"
 msgstr[1] "%(counter)s míle daleko"
 msgstr[2] "%(counter)s mil daleko"
 
-#: djangopeople/templates/recent.html:3 djangopeople/templates/recent.html:9
+#: djangopeople/templates/recent.html:4 djangopeople/templates/recent.html:7
 msgid "Recent people"
 msgstr "Nedávno přihlášení"
 
-#: djangopeople/templates/search.html:3 djangopeople/templates/search.html:9
+#: djangopeople/templates/search.html:4 djangopeople/templates/search.html:10
 #, python-format
 msgid "Search: %(q)s"
 msgstr "Hledání: %(q)s"
 
-#: djangopeople/templates/search.html:3 djangopeople/templates/search.html:9
-#: djangopeople/templates/search.html:12
+#: djangopeople/templates/search.html:4 djangopeople/templates/search.html:10
+#: djangopeople/templates/search.html:13
 msgid "Search"
 msgstr "Hledat"
 
-#: djangopeople/templates/search.html:10
+#: djangopeople/templates/search.html:11
 #, python-format
 msgid "%(counter)s result"
 msgid_plural "%(counter)s results"
@@ -1205,88 +980,65 @@ msgstr[0] "%(counter)s výsledek"
 msgstr[1] "%(counter)s výsledky"
 msgstr[2] "%(counter)s výsledků"
 
-#: djangopeople/templates/search.html:11
+#: djangopeople/templates/search.html:12
 msgid "Terms must be three or more characters"
 msgstr "Výraz musí mít tři nebo více znaků"
 
-#: djangopeople/templates/search.html:13
+#: djangopeople/templates/search.html:14
 msgid "This tool searches by username, first name and last name."
 msgstr "Nástroj vyhledává uživatelská jména, křestní jména a příjmení"
 
-#: djangopeople/templates/search.html:27
+#: djangopeople/templates/search.html:28
 msgid "No users found."
 msgstr "Nenalezeni žádní uživatelé"
 
-#: djangopeople/templates/signup.html:4
+#: djangopeople/templates/signup.html:4 djangopeople/templates/signup.html:9
 msgid "Sign up"
 msgstr "Registrace"
 
-#: djangopeople/templates/signup.html:15
-msgid "Sign up as a Django Person"
-msgstr "Přihlásit se mezi djangisty"
-
-#: djangopeople/templates/signup.html:21
-#, python-format
-msgid ""
-"Got an <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s"
-"\">Sign up with your OpenID now!</a>"
-msgstr ""
-"Používáte systém <strong class=\"openid\">OpenID</strong>? <a href="
-"\"%(openid_url)s\">Přihlašte se pomocí svého OpenID.</a>"
-
-#: djangopeople/templates/signup.html:23
-#, python-format
-msgid ""
-"Your new account will be associated with with your OpenID: <strong class="
-"\"openid\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next="
-"%(signup_url)s\">don't associate</a>)"
-msgstr ""
-"Nový účet bude přiřazen k vašemu OpenID: <strong class=\"openid\">"
-"%(openid)s</strong> (<a href=\"%(openid_signout)s?next=%(signup_url)s"
-"\">nepřiřazovat</a>)"
-
-#: djangopeople/templates/signup.html:26
+#: djangopeople/templates/signup.html:29
 msgid "1. Tell us who you are"
 msgstr "1. Prozraďte, kdo jste"
 
-#: djangopeople/templates/signup.html:56
+#: djangopeople/templates/signup.html:59
 msgid "2. Tell us where you live"
 msgstr "2. Prozraďte, kde žijete"
 
-#: djangopeople/templates/signup.html:60
+#: djangopeople/templates/signup.html:63
 msgid ""
 "Latitude and longitude are missing. Please use the map to provide your "
 "location."
 msgstr "Chybí zeměpisná šířka a délka. Vyberte laskavě na mapě svou polohu."
 
-#: djangopeople/templates/signup.html:90
+#: djangopeople/templates/signup.html:93
 msgid "3. And a bit about you …"
 msgstr "3. A trochu více informací o vás..."
 
-#: djangopeople/templates/signup.html:123
+#: djangopeople/templates/signup.html:126
 msgid "4. Your privacy settings"
 msgstr "4. Nastavení soukromí"
 
-#: djangopeople/templates/signup.html:142
+#: djangopeople/templates/signup.html:145
 msgid "5. Your skills and interests"
 msgstr "5. Dovednosti a zájmy"
 
-#: djangopeople/templates/signup.html:144
+#: djangopeople/templates/signup.html:147
+#, fuzzy
 msgid ""
-"Tag yourself with your particular skills and interests, e.g. postgresql, "
-"nginx, css. Separate them with commas; spaces are allowed."
+"Tag yourself with your particular skills and interests, Separate them with "
+"commas; spaces are allowed."
 msgstr ""
 "Označte konkrétní dovednosti a zájmy, např. postgresql, nginx, css. Odděluje "
 "je čárkami, mezery nevadí."
 
-#: djangopeople/templates/signup.html:153
+#: djangopeople/templates/signup.html:156
 msgid "Sign me up"
 msgstr "Registrovat"
 
 #: djangopeople/templates/skill.html:8
-#, python-format
-msgid "%(counter)s Django Person mention this skill"
-msgid_plural "%(counter)s Django People mention this skill"
+#, fuzzy, python-format
+msgid "%(counter)s Ukrainian Person mention this skill"
+msgid_plural "%(counter)s Ukrainian People mention this skill"
 msgstr[0] "Tuto dovednost uvádí %(counter)s djangista"
 msgstr[1] "Tuto dovednost uvádí %(counter)s djangisté"
 msgstr[2] "Tuto dovednost uvádí %(counter)s djangistů"
@@ -1355,3 +1107,213 @@ msgstr ""
 #: djangopeople/templates/password_reset/reset.html:14
 msgid "Set new password"
 msgstr "Nastavit nové heslo"
+
+#~ msgid "Looking for work?"
+#~ msgstr "Hledání práce"
+
+#, fuzzy
+#~ msgid "Looking for freelance work"
+#~ msgstr "Hledání práce"
+
+#, fuzzy
+#~ msgid "Looking for full-time work"
+#~ msgstr "Hledání práce"
+
+#~ msgid "About Django People"
+#~ msgstr "O projektu Djangisté"
+
+#~ msgid ""
+#~ "Django People lists %(count)s <a href=\"https://www.djangoproject.com/"
+#~ "\">Django</a> developers from around the world, in %(countries)s "
+#~ "different countries. The aim of the site is to help Django developers "
+#~ "find like-minded souls near them, and hopefully kick-start some local "
+#~ "meet-ups and user groups."
+#~ msgstr ""
+#~ "Projekt Djangisté (Django People\\) uvádí seznam %(count)s vývojářů "
+#~ "používajících <a href=\"https://www.djangoproject.com/\">framework "
+#~ "Django</a> z %(countries)s různých zemí celého světa. Cílem je pomoci "
+#~ "těmto vývojářům nalézt v blízkosti zpřízněné duše a třeba rozjet místní "
+#~ "odborná setkání a komunity."
+
+#~ msgid ""
+#~ "The site was originally built and open-sourced by <a href=\"/simon/"
+#~ "\">Simon Willison</a> and <a href=\"/natbat/\">Natalie Downe</a>. The "
+#~ "code is <a href=\"https://github.com/brutasse/djangopeople\">available on "
+#~ "github</a>, you can post feedback and bug reports on the repository's <a "
+#~ "href=\"https://github.com/brutasse/djangopeople/issues\">issues page</a>."
+#~ msgstr ""
+#~ "Tuto aplikaci původně vytvořili a zdrojový kód otevřeli <a href=\"/simon/"
+#~ "\">Simon Willison</a> a <a href=\"/natbat/\">Natalie Downe</a>. Kód je <a "
+#~ "href=\"https://github.com/brutasse/djangopeople\">k dispozici na githubu</"
+#~ "a>, můžete dodat zpětnou vazbu a hlásit chyby na <a href=\"https://github."
+#~ "com/brutasse/djangopeople/issues\">stránce Issues</a> repozitáře."
+
+#~ msgid "Colophon"
+#~ msgstr "Tiráž"
+
+#, fuzzy
+#~ msgid ""
+#~ "Country data and location lookups come from <a href=\"http://www.geonames."
+#~ "org/\">GeoNames</a>, while the maps themselves are from <a href=\"http://"
+#~ "www.openstreetmap.org\">OpenStreetMap</a> and powered by <a href=\"http://"
+#~ "leaflet.cloudmade.com/\">Leaflet</a>. Country flags and icons are by <a "
+#~ "href=\"http://famfamfam.com/lab/icons/\">Mark James</a>; US state flags "
+#~ "come <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S._states\" "
+#~ "title=\"Flags of the U.S. states\">from Wikipedia</a>. Profile pictures "
+#~ "come from <a href=\"http://en.gravatar.com/\">Gravatar</a>."
+#~ msgstr ""
+#~ "Vyhledávací tabulky zemí a poloh pocházejí z databáze <a href=\"http://"
+#~ "www.geonames.org/\">GeoNames</a>, mapy samotné jsou založené na <a href="
+#~ "\"https://developers.google.com/maps/\">Google Maps API</a>.\n"
+#~ "Vlajky zemí a ikonky jsou od <a href=\"http://famfamfam.com/lab/icons/"
+#~ "\">Marka Jamese</a>; vlajky zemí USA pocházejí z <a href=\"http://en."
+#~ "wikipedia.org/wiki/Flags_of_the_U.S._states\" title=\"Flags of the U.S. "
+#~ "states\">from Wikipedia</a>. Obrázky v profilech se přebírají ze služby "
+#~ "<a href=\"http://en.gravatar.com/\">Gravatar</a>."
+
+#~ msgid ""
+#~ "The site uses <a href=\"http://code.google.com/p/django-tagging/\">django-"
+#~ "tagging</a> by <a href=\"/insin/\">Jonathan Buchanan</a> for the <a href="
+#~ "\"/skills/\">skills feature</a>. <a href=\"http://simonwillison.net/2008/"
+#~ "Jan/24/upgrade/\" title=\"Django People: OpenID and microformats\">OpenID "
+#~ "support</a> (used by %(openid_users)s people) depends on <a href=\"http://"
+#~ "openidenabled.com/python-openid/\">python-openid</a> (version 2.2.5)  and "
+#~ "<a href=\"http://code.google.com/p/django-openid/\">django-openid</a>."
+#~ msgstr ""
+#~ "Tato aplikace používá prvky <a href=\"http://code.google.com/p/django-"
+#~ "tagging/\">django-tagging</a> od <a href=\"/insin/\">Jonathana Buchanana</"
+#~ "a> (<a href=\"/skills/\">funkce dovednosti)</a>. <a href=\"http://"
+#~ "simonwillison.net/2008/Jan/24/upgrade/\" title=\"Django People: OpenID "
+#~ "and microformats\">Podporu OpenID</a> (používá %(openid_users)s lidí) "
+#~ "založenou na modulu <a href=\"http://openidenabled.com/python-openid/"
+#~ "\">python-openid</a> (verze 2.2.5)  a <a href=\"http://code.google.com/p/"
+#~ "django-openid/\">django-openid</a>."
+
+#~ msgid ""
+#~ "Deployment is <a href=\"http://gunicorn.org\">gunicorn</a>, hosted on <a "
+#~ "href=\"http://www.heroku.com/\">Heroku</a>."
+#~ msgstr ""
+#~ "Nasazeno je pomocí <a href=\"http://gunicorn.org\">serveru gunicorn</a> "
+#~ "na hostingu <a href=\"http://www.heroku.com/\">Heroku</a>."
+
+#~ msgid "A Django joint."
+#~ msgstr "Společný projekt Djanga."
+
+#~ msgid "home"
+#~ msgstr "domů"
+
+#~ msgid "about"
+#~ msgstr "o projektu"
+
+#~ msgid "search"
+#~ msgstr "hledat"
+
+#~ msgid "sign up as a django person"
+#~ msgstr "registrovat se jako djangista"
+
+#~ msgid "log out"
+#~ msgstr "odhlásit"
+
+#~ msgid "Django People"
+#~ msgstr "Djangisté"
+
+#~ msgid ""
+#~ "Discover users of the <a href=\"https://www.djangoproject.com/\">Django "
+#~ "Web framework</a> near you"
+#~ msgstr ""
+#~ "Odhalte okolní uživatele <a href=\"https://www.djangoproject.com/"
+#~ "\">webového frameworku Django</a>"
+
+#~ msgid "Hosted on <span class=\"heroku\">Heroku</span>"
+#~ msgstr "Provozováno na systémech <span class=\"heroku\">Heroku</span>"
+
+#~ msgid "Add sites to your portfolio"
+#~ msgstr "Přidat weby do portfolia"
+
+#~ msgid ""
+#~ "You have %(counter)s OpenID associated with your account. <a href="
+#~ "\"%(openid_url)s\">Manage your OpenID</a>"
+#~ msgid_plural ""
+#~ "You have %(counter)s OpenIDs associated with your account. <a href="
+#~ "\"%(openid_url)s\">Manage your OpenIDs</a>"
+#~ msgstr[0] ""
+#~ "S vaším účtem máte přiřazeno %(counter)s OpenID. <a href=\"%(openid_url)s"
+#~ "\">Spravovat své OpenID</a>"
+#~ msgstr[1] ""
+#~ "S vaším účtem máte přiřazena %(counter)s OpenID. <a href=\"%(openid_url)s"
+#~ "\">Spravovat své OpenID</a>"
+#~ msgstr[2] ""
+#~ "S vaším účtem máte přiřazených %(counter)s OpenID. <a href="
+#~ "\"%(openid_url)s\">Spravovat své OpenID</a>"
+
+#~ msgid ""
+#~ "If you have an <a href=\"http://openid.net/\">OpenID</a>, you can <a href="
+#~ "\"%(openid_url)s\">associate it with your account</a>. This will allow "
+#~ "you to log in using your OpenID instead of your password."
+#~ msgstr ""
+#~ "Používáte-li systém <a href=\"http://openid.net/\">OpenID</a>, můžete si "
+#~ "jej <a href=\"%(openid_url)s\">přiřadit ke svému účtu</a>. Umožní vám to "
+#~ "přihlášení místo svého hesla."
+
+#~ msgid "Advanced: Use your profile page as an OpenID"
+#~ msgstr "Pokročilé: Použijte stránku profilu jako OpenID"
+
+#~ msgid ""
+#~ "If you already have an OpenID, you can configure your Django People "
+#~ "profile page to delegate to it. This means you'll be able to use your "
+#~ "profile page as an OpenID, without having to sign in to Django People "
+#~ "first."
+#~ msgstr ""
+#~ "Pokud již máte své OpenID, můžete nastavit profilovou stránku projektu "
+#~ "Djangisté na delegaci. To znamená, že budete moci použít svou stránku "
+#~ "profilu jako OpenID bez nutnosti se nejdříve přihlásit k webu Djangisté."
+
+#~ msgid ""
+#~ "Read <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">more about "
+#~ "delegation</a> to learn how to use this form."
+#~ msgstr ""
+#~ "Více informací o tomto formuláři naleznete <a href=\"http://simonwillison."
+#~ "net/2006/Dec/19/openid/\">v článku o delegacích</a>."
+
+#~ msgid "Update OpenID delegation"
+#~ msgstr "Aktualizovat delegaci OpenID"
+
+#~ msgid "Use any instant messaging software?"
+#~ msgstr "Používáte nějaké programy pro IM?"
+
+#~ msgid "Or sign in with your OpenID"
+#~ msgstr "Nebo se přihlašte pomocí OpenID"
+
+#~ msgid "OpenID not working?"
+#~ msgstr "Nefunguje OpenID?"
+
+#~ msgid "Log in with OpenID"
+#~ msgstr "Přihlásit se pomocí OpenID"
+
+#~ msgid "%(name)s's Django portfolio"
+#~ msgstr "Portfolio djangisty %(name)s"
+
+#~ msgid "Django projects %(name)s has contributed to"
+#~ msgstr "Projekty na Djangu s příspěvkem uživatele %(name)s"
+
+#~ msgid "<a href=\"%(portfolio_url)s\">Add some sites</a> to your portfolio"
+#~ msgstr "<a href=\"%(portfolio_url)s\">Přidejte weby</a> do svého portfolia"
+
+#~ msgid "Sign up as a Django Person"
+#~ msgstr "Přihlásit se mezi djangisty"
+
+#~ msgid ""
+#~ "Got an <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s"
+#~ "\">Sign up with your OpenID now!</a>"
+#~ msgstr ""
+#~ "Používáte systém <strong class=\"openid\">OpenID</strong>? <a href="
+#~ "\"%(openid_url)s\">Přihlašte se pomocí svého OpenID.</a>"
+
+#~ msgid ""
+#~ "Your new account will be associated with with your OpenID: <strong class="
+#~ "\"openid\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next="
+#~ "%(signup_url)s\">don't associate</a>)"
+#~ msgstr ""
+#~ "Nový účet bude přiřazen k vašemu OpenID: <strong class=\"openid\">"
+#~ "%(openid)s</strong> (<a href=\"%(openid_signout)s?next=%(signup_url)s"
+#~ "\">nepřiřazovat</a>)"

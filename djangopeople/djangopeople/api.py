@@ -1,3 +1,5 @@
+import json
+
 from django.conf import settings
 from django.contrib.sites.models import RequestSite
 from django.core.urlresolvers import reverse
@@ -5,6 +7,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.utils import timezone
 
+from .models import Country, DjangoPerson
 from ..machinetags.models import MachineTaggedItem
 
 
@@ -70,3 +73,12 @@ def irc_spotted(request, irc_nick):
 
 def api_response(code):
     return HttpResponse(code, content_type='text/plain')
+
+
+def stats(request):
+    payload = {
+        'people': DjangoPerson.objects.count(),
+        'countries': Country.objects.filter(num_people__gt=0).count(),
+    }
+    return HttpResponse(json.dumps(payload),
+                        content_type='application/json')

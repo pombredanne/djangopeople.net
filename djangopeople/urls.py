@@ -39,6 +39,7 @@ urlpatterns = patterns(
     url(r'^recover/$', views.recover, name='password_reset_recover'),
     url(r'^', include('password_reset.urls')),
     url(r'^signup/$', views.signup, name='signup'),
+    url(r'^geonames/$', views.geonames, name='geonames'),
 
     url(r'^favicon.ico$', favicon),
     url(r'^robots.txt$', robots, name='robots'),
@@ -46,29 +47,31 @@ urlpatterns = patterns(
     url(r'^static/img/.*', gone),
 
     #openid stuff
-    url(
-        r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
-            'sreg': 'email,nickname,fullname',
-            'redirect_to': '/openid/complete/',
-        }, name='openid_begin'),
-    url(r'^openid/complete/$',
-        'djangopeople.django_openidconsumer.views.complete',
-        name='openid_complete'),
-
-    url(r'^openid/whatnext/$', views.openid_whatnext, name='openid_whatnext'),
-
-    url(r'^openid/signout/$',
-        'djangopeople.django_openidconsumer.views.signout',
-        name='openid_signout'),
-
-    url(r'^openid/associations/$',
-        'djangopeople.django_openidauth.views.associations',
-        name='openid_associations'),
+    # url(
+    #     r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
+    #         'sreg': 'email,nickname,fullname',
+    #         'redirect_to': '/openid/complete/',
+    #     }, name='openid_begin'),
+    # url(r'^openid/complete/$',
+    #     'djangopeople.django_openidconsumer.views.complete',
+    #     name='openid_complete'),
+    #
+    # url(r'^openid/whatnext/$', views.openid_whatnext, name='openid_whatnext'),
+    #
+    # url(r'^openid/signout/$',
+    #     'djangopeople.django_openidconsumer.views.signout',
+    #     name='openid_signout'),
+    #
+    # url(r'^openid/associations/$',
+    #     'djangopeople.django_openidauth.views.associations',
+    #     name='openid_associations'),
 
     url(r'^search/$', views.search, name='search'),
 
     url(r'^skills/(?P<tag>.*)/$', views.skill, name='skill_detail'),
     url(r'^skills/$', views.skill_cloud, name='skill_cloud'),
+
+    url(r'^api/stats/$', api.stats, name='stats'),
 
     url(r'^api/irc_lookup/(.*?)/$', api.irc_lookup, name='irc_lookup'),
     url(r'^api/irc_spotted/(.*?)/$', api.irc_spotted, name='irc_spotted'),

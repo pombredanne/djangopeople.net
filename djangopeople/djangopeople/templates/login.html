@@ -12,7 +12,6 @@
 {% block content %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
 <script type="text/javascript">
 	$(function() {
 		$('p.invalid').css({
@@ -70,19 +69,19 @@
 		</div>
 	</form>
 
-	<h2>{% trans "Or sign in with your OpenID" %}</h2>
-
-	<form method="post" action="{% url "openid_begin" %}">
-		{% csrf_token %}
-		<fieldset>
-			<div class="fieldWrapper">
-				<label for="id_openid">{% trans "OpenID" %}</label>
-				<input id="id_openid" class="openid" type="text" name="openid_url">
-			</div>
-			<p><a href="{% url "password_reset_recover" %}">{% trans "OpenID not working?" %}</a></p>
-		</fieldset>
-		<div class="buttonContainer">
-			<input type="submit" value="{% trans "Log in with OpenID" %}">
-		</div>
-	</form>
+{#	<h2>{% trans "Or sign in with your OpenID" %}</h2>#}
+{##}
+{#	<form method="post" action="{% url "openid_begin" %}">#}
+{#		{% csrf_token %}#}
+{#		<fieldset>#}
+{#			<div class="fieldWrapper">#}
+{#				<label for="id_openid">{% trans "OpenID" %}</label>#}
+{#				<input id="id_openid" class="openid" type="text" name="openid_url">#}
+{#			</div>#}
+{#			<p><a href="{% url "password_reset_recover" %}">{% trans "OpenID not working?" %}</a></p>#}
+{#		</fieldset>#}
+{#		<div class="buttonContainer">#}
+{#			<input type="submit" value="{% trans "Log in with OpenID" %}">#}
+{#		</div>#}
+{#	</form>#}
 {% endblock %}

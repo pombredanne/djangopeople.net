@@ -6,14 +6,13 @@
 {% block nav_li_class_signup %} class="current"{% endblock %}
 
 {% block header%}
-	<h1>{% trans "Sign up as a Django Person" %}</h1>
+	<h1>{% trans "Sign up" %}</h1>
 {% endblock %}
 
 {% block content %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
-<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
+<script type="text/options" class="map-options" data-edit="true" data-zoom=2></script>
 {% endaddtoblock %}
 
 {% addtoblock "css" %}
@@ -21,11 +20,11 @@
 {% endaddtoblock %}
 
 	<form method="post" action="{% url "signup" %}">{% csrf_token %}
-		{% if not openid %}{% url "openid_begin" as openid_url %}
-			<p>{% blocktrans %}Got an <strong class="openid">OpenID</strong>? <a href="{{ openid_url }}">Sign up with your OpenID now!</a>{% endblocktrans %}</p>
-		{% else %}{% url "openid_signout" as openid_signout %}{% url "signup" as signup_url %}
-			<p>{% blocktrans %}Your new account will be associated with with your OpenID: <strong class="openid">{{ openid }}</strong> (<a href="{{ openid_signout }}?next={{ signup_url }}">don't associate</a>){% endblocktrans %}</p>
-		{% endif %}
+{#		{% if not openid %}{% url "openid_begin" as openid_url %}#}
+{#			<p>{% blocktrans %}Got an <strong class="openid">OpenID</strong>? <a href="{{ openid_url }}">Sign up with your OpenID now!</a>{% endblocktrans %}</p>#}
+{#		{% else %}{% url "openid_signout" as openid_signout %}{% url "signup" as signup_url %}#}
+{#			<p>{% blocktrans %}Your new account will be associated with with your OpenID: <strong class="openid">{{ openid }}</strong> (<a href="{{ openid_signout }}?next={{ signup_url }}">don't associate</a>){% endblocktrans %}</p>#}
+{#		{% endif %}#}
 
 		<h2>{% trans "1. Tell us who you are" %}</h2>
 
@@ -67,7 +66,7 @@
 </div>
 
 <div class="mapContainer major" id="mapWrapper">
-	<div id="gmap">&nbsp;</div>
+	<div id="map">&nbsp;</div>
 	<div id="crosshair"></div>
 </div>
 
@@ -113,16 +112,16 @@
 		{% endfor %}
 	</fieldset>
 
-	<fieldset>
-		<p class="help">{% trans "Use any instant messaging software?" %}</p>
-		{% for provider in form.improvider_fields %}
-			<div class="fieldWrapper">
-				{{ provider.field.errors|safe }}
-				<label for="id_im_{{ provider.shortname }}">{{ provider.label }}</label>
-				{{ provider.field }}
-			</div>
-		{% endfor %}
-	</fieldset>
+{#	<fieldset>#}
+{#		<p class="help">{% trans "Use any instant messaging software?" %}</p>#}
+{#		{% for provider in form.improvider_fields %}#}
+{#			<div class="fieldWrapper">#}
+{#				{{ provider.field.errors|safe }}#}
+{#				<label for="id_im_{{ provider.shortname }}">{{ provider.label }}</label>#}
+{#				{{ provider.field }}#}
+{#			</div>#}
+{#		{% endfor %}#}
+{#	</fieldset>#}
 
 	<h2>{% trans "4. Your privacy settings" %}</h2>
 	<fieldset>
@@ -145,7 +144,7 @@
 
 	<h2>{% trans "5. Your skills and interests" %}</h2>
 	<fieldset>
-		<p class="help">{% trans "Tag yourself with your particular skills and interests, e.g. postgresql, nginx, css. Separate them with commas; spaces are allowed." %}</p>
+		<p class="help">{% trans "Tag yourself with your particular skills and interests, Separate them with commas; spaces are allowed." %}</p>
 		{% with form.skilltags as field %}
 			{% include "includes/field.html" %}
 		{% endwith %}

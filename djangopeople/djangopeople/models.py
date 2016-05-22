@@ -32,7 +32,7 @@ RESERVED_USERNAMES = set((
 
 class CountryManager(models.Manager):
     def top_countries(self):
-        return self.get_query_set().order_by('-num_people')
+        return self.get_queryset().order_by('-num_people')
 
 
 class Country(models.Model):

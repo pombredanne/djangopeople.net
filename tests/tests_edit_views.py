@@ -371,20 +371,20 @@ class EditViewTest(TestCase):
         response = self.client.get(url_edit_account)
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_openid_server">OpenID server</label>'
+                '<label for="id_openid_server">OpenID server:</label>'
             )[1].split('</div>')[0],
             (
-                '<input id="id_openid_server" type="text" '
+                '<input id="id_openid_server" type="url" '
                 'name="openid_server" value="http://example.com/" '
                 'maxlength="255" />')
         )
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_openid_delegate">OpenID delegate</label>'
+                '<label for="id_openid_delegate">OpenID delegate:</label>'
             )[1].split('</div>')[0],
             (
                 '<input id="id_openid_delegate" '
-                'type="text" name="openid_delegate" '
+                'type="url" name="openid_delegate" '
                 'value="http://google.com/" '
                 'maxlength="255" />'
             )
@@ -479,7 +479,7 @@ class EditViewTest(TestCase):
         response = self.client.get(url_edit_portfolio)
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_title_1">Title 1</label>'
+                '<label for="id_title_1">Title 1:</label>'
             )[1].split('</div>')[0],
             (
                 '<input id="id_title_1" type="text" '
@@ -489,17 +489,17 @@ class EditViewTest(TestCase):
         )
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_url_1">URL 1</label>'
+                '<label for="id_url_1">URL 1:</label>'
             )[1].split('</div>')[0],
             (
-                '<input id="id_url_1" type="text" '
+                '<input id="id_url_1" type="url" '
                 'name="url_1" value="http://example.org/'
                 '" maxlength="255" />'
             )
         )
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_title_2">Title 2</label>'
+                '<label for="id_title_2">Title 2:</label>'
             )[1].split('</div>')[0],
             (
                 '<input id="id_title_2" type="text" '
@@ -508,10 +508,10 @@ class EditViewTest(TestCase):
         )
         self.assertHTMLEqual(
             response.content.split(
-                '<label for="id_url_2">URL 2</label>'
+                '<label for="id_url_2">URL 2:</label>'
             )[1].split('</div>')[0],
             (
-                '<input id="id_url_2" type="text" '
+                '<input id="id_url_2" type="url" '
                 'name="url_2" maxlength="255" />'
             )
         )
@@ -745,8 +745,8 @@ class EditViewTest(TestCase):
         response = self.client.get(url_profile)
 
         self.assertContains(response, 'Austria')
-        self.assertContains(response, 'person_latitude = %d' % latitude)
-        self.assertContains(response, 'person_longitude = %d' % longitude)
+        self.assertContains(response, 'data-shrinklat="%d' % latitude)
+        self.assertContains(response, 'data-shrinklon="%d' % longitude)
 
         p = DjangoPerson.objects.get(user__username='daveb')
         self.assertTrue(abs(p.latitude - latitude) < 0.01)
@@ -780,11 +780,11 @@ class EditViewTest(TestCase):
 
         self.assertRedirects(response, url_profile)
         self.assertNotContains(response, 'Austria')
-        self.assertNotContains(response, 'person_latitude = %d' % latitude)
-        self.assertNotContains(response, 'person_longitude = %d' % longitude)
+        self.assertNotContains(response, 'data-shrinklat="%d' % latitude)
+        self.assertNotContains(response, 'data-shrinklon="%d' % longitude)
         self.assertContains(response, 'Australia')
-        self.assertContains(response, 'person_latitude = %d' % new_latitude)
-        self.assertContains(response, 'person_longitude = %d' % new_longitude)
+        self.assertContains(response, 'data-shrinklat="%d' % new_latitude)
+        self.assertContains(response, 'data-shrinklon="%d' % new_longitude)
 
         p = DjangoPerson.objects.get(user__username='daveb')
         self.assertTrue(abs(p.latitude - new_latitude) < 0.01)

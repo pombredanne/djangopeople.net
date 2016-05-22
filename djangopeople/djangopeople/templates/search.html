@@ -1,5 +1,5 @@
 {% extends "maps.html" %}
-{% load person_list_items %}
+{% load person_list_items sekizai_tags %}
 
 {% block title %}{% if q %}{% blocktrans %}Search: {{ q }}{% endblocktrans %}{% else %}{% trans "Search" %}{% endif %} |{% endblock %}
 
@@ -18,7 +18,7 @@
 {% block map %}
 	{% if people_list %}
 		<div class="mapContainer major">
-			<div id="gmap">&nbsp;</div>
+			<div id="map">&nbsp;</div>
 		</div>
 	{% endif %}
 {% endblock %}

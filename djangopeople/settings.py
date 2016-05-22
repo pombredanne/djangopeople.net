@@ -1,20 +1,23 @@
 import dj_database_url
 import os
-import urlparse
 
 from django.core.urlresolvers import reverse_lazy
+from django.utils.six.moves.urllib import parse
+
+
+try:
+    from prod import environ
+    environ.update(os.environ.__dict__)
+except ImportError:
+    environ = os.environ
 
 OUR_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
-TEST_DISCOVER_TOP_LEVEL = os.path.join(OUR_ROOT, os.pardir)
-TEST_DISCOVERY_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
-
-DEBUG = bool(os.environ.get('DEBUG', False))
+DEBUG = bool(environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 # OpenID settings
-OPENID_REDIRECT_NEXT = reverse_lazy('openid_whatnext')
+# OPENID_REDIRECT_NEXT = reverse_lazy('openid_whatnext')
 LOGIN_URL = reverse_lazy('login')
 
 # Tagging settings
@@ -22,7 +25,15 @@ FORCE_LOWERCASE_TAGS = True
 
 ADMINS = MANAGERS = ()
 
-DATABASES = {'default': dj_database_url.config()}
+DATABASES = {'default': dj_database_url.config(default=environ['DATABASE_URL'])}
+
+if DEBUG:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+      }
+    }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -48,6 +59,7 @@ LANGUAGES = (
     ('he', gettext('Hebrew')),
     ('pt', gettext('Portuguese')),
     ('sk', gettext('Slovak')),
+    ('uk', gettext('Ukrainian')),
 )
 
 LOCALE_PATHS = (
@@ -63,13 +75,13 @@ USE_I18N = True
 # Absolute path to the directory where static media will be collected.
 STATIC_ROOT = os.path.join(OUR_ROOT, 'static')
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = environ['SECRET_KEY']
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 # Password used by the IRC bot for the API
-API_PASSWORD = os.environ['API_PASSWORD']
+API_PASSWORD = environ['API_PASSWORD']
 
 if DEBUG:
     TEMPLATE_LOADERS = (
@@ -85,20 +97,20 @@ else:
     )
 
 MIDDLEWARE_CLASSES = (
-    'djangopeople.djangopeople.middleware.CanonicalDomainMiddleware',
+    # 'djangopeople.djangopeople.middleware.CanonicalDomainMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'djangopeople.djangopeople.middleware.RemoveWWW',
+    # 'djangopeople.djangopeople.middleware.RemoveWWW',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
-    'django.middleware.doc.XViewMiddleware',
-    'djangopeople.djangopeople.middleware.NoDoubleSlashes',
+    # 'djangopeople.django_openidconsumer.middleware.OpenIDMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
+    # 'djangopeople.djangopeople.middleware.NoDoubleSlashes',
 )
 
-if 'SENTRY_DSN' in os.environ:
+if 'SENTRY_DSN' in environ:
     MIDDLEWARE_CLASSES += (
         'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     )
@@ -129,8 +141,8 @@ INSTALLED_APPS = (
     'djangosecure',
     'tagging',
 
-    'djangopeople.django_openidconsumer',
-    'djangopeople.django_openidauth',
+    # 'djangopeople.django_openidconsumer',
+    # 'djangopeople.django_openidauth',
     'djangopeople.djangopeople',
     'djangopeople.machinetags',
 
@@ -138,7 +150,7 @@ INSTALLED_APPS = (
     'sekizai',
 )
 
-if 'SENTRY_DSN' in os.environ:
+if 'SENTRY_DSN' in environ:
     INSTALLED_APPS += (
         'raven.contrib.django',
     )
@@ -181,41 +193,54 @@ LOGGING = {
     },
 }
 
-if 'CANONICAL_HOSTNAME' in os.environ:
-    CANONICAL_HOSTNAME = os.environ['CANONICAL_HOSTNAME']
+GEONAMES_USERNAME = environ.get('GEONAMES_USERNAME', 'brutasse')
+
+if 'CANONICAL_HOSTNAME' in environ:
+    CANONICAL_HOSTNAME = environ['CANONICAL_HOSTNAME']
     ALLOWED_HOSTS = [CANONICAL_HOSTNAME]
 
-SERVER_EMAIL = DEFAULT_FROM_EMAIL = os.environ['FROM_EMAIL']
+SERVER_EMAIL = DEFAULT_FROM_EMAIL = environ['FROM_EMAIL']
+
+# SESSION_SERIALIZER = 'djangopeople.serializers.JSONSerializer'
+
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    EMAIL_BACKEND = 'django_ses.SESBackend'
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
+    # EMAIL_BACKEND = 'django_ses.SESBackend'
+    AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_KEY']
+    AWS_STORAGE_BUCKET_NAME = environ['AWS_BUCKET_NAME']
     AWS_QUERYSTRING_AUTH = False
     STATICFILES_STORAGE = 'djangopeople.s3storage.S3HashedFilesStorage'
     STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    # AWS_SES_ACCESS_KEY_ID = environ['AWS_SES_ACCESS_KEY_ID']
+    # AWS_SES_SECRET_ACCESS_KEY = environ['AWS_SES_SECRET_ACCESS_KEY']
+    # AWS_SES_REGION_NAME = 'us-east-1'
+    # AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com'
 
+    EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = environ['GMAIL_USER']
+    EMAIL_HOST_PASSWORD = environ['GMAIL_PASSWORD']
     # Run the site over SSL
-    MIDDLEWARE_CLASSES = (
-        'djangosecure.middleware.SecurityMiddleware',
-    ) + MIDDLEWARE_CLASSES
-    SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_SECURE = True
+    #MIDDLEWARE_CLASSES = (
+    #    'djangosecure.middleware.SecurityMiddleware',
+    #) + MIDDLEWARE_CLASSES
+    #SESSION_COOKIE_SECURE = True
+    #SESSION_COOKIE_HTTPONLY = True
+    #CSRF_COOKIE_SECURE = True
 
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_SECONDS = 2592000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_FRAME_DENY = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    #SECURE_SSL_REDIRECT = True
+    #SECURE_HSTS_SECONDS = 2592000
+    #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    #SECURE_FRAME_DENY = True
+    #SECURE_CONTENT_TYPE_NOSNIFF = True
+    #SECURE_BROWSER_XSS_FILTER = True
+    #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-if 'REDISTOGO_URL' in os.environ:
-    urlparse.uses_netloc.append('redis')
-    redis_url = urlparse.urlparse(os.environ['REDISTOGO_URL'])
+if 'REDISTOGO_URL' in environ:
+    redis_url = parse.urlparse(environ['REDISTOGO_URL'])
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
@@ -224,8 +249,24 @@ if 'REDISTOGO_URL' in os.environ:
                 'DB': 0,
                 'PASSWORD': redis_url.password,
             },
-            'VERSION': os.environ.get('CACHE_VERSION', 0),
+            'VERSION': environ.get('CACHE_VERSION', 0),
         },
+    }
+
+
+if 'MEMCACHE_URL' in environ:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': environ['MEMCACHED_URL'],
+        }
+    }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
+        }
     }
 
 try:
@@ -233,31 +274,8 @@ try:
 except ImportError:
     pass
 else:
-    INTERNAL_IPS = (
-        '127.0.0.1',
-    )
-
     INSTALLED_APPS += (
         'debug_toolbar',
     )
 
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
-
-    DEBUG_TOOLBAR_CONFIG = {
-        'INTERCEPT_REDIRECTS': False,
-        'HIDE_DJANGO_SQL': False,
-    }
-
-    DEBUG_TOOLBAR_PANELS = (
-        'debug_toolbar.panels.version.VersionDebugPanel',
-        'debug_toolbar.panels.timer.TimerDebugPanel',
-        'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-        'debug_toolbar.panels.headers.HeaderDebugPanel',
-        'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-        'debug_toolbar.panels.template.TemplateDebugPanel',
-        'debug_toolbar.panels.sql.SQLDebugPanel',
-        'debug_toolbar.panels.signals.SignalDebugPanel',
-        'debug_toolbar.panels.logger.LoggingPanel',
-    )
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'

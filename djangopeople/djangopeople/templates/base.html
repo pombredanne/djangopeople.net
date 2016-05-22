@@ -5,34 +5,59 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>{% block title %}{% endblock %} Django People</title>
+        <meta property="og:url" content="http://allukrainians.com/" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="All Ukrainians" />
+        <meta property="og:description" content="Discover Ukrainian people that live near your and get in touch" />
+        <meta property="og:image" content="{% static "djangopeople/img/allukrainians.png" %}" />
+
+		<title>{% block title %}{% endblock %} All Ukrainians</title>
 		<link rel="shortcut icon" href="{% static "djangopeople/img/favicon.ico" %}">
 		<link rel="stylesheet" href="{% static "djangopeople/css/styles.css" %}" type="text/css" media="all" charset="utf-8">
 		{% render_block "css" %}
 		{% block adder %}{% endblock %}
 	</head>
-<body{% block bodymeta %}{% endblock %}>
+<body{% block bodymeta %}{% endblock %} data-static-url="{{ STATIC_URL }}">
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1680776608858476',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="wrapper">
 	<div class="nav">
 		<ul>
-			<li{% block nav_li_class_home %}{% endblock %}><a href="{% url "index" %}">{% trans "home" %}</a></li>
-			<li{% block nav_li_class_about %}{% endblock %}><a href="{% url "about" %}">{% trans "about" %}</a></li>
-			<li{% block nav_li_class_search %}{% endblock %}><a href="{% url "search" %}">{% trans "search" %}</a></li>
+			<li{% block nav_li_class_home %}{% endblock %}><a href="{% url "index" %}">{% trans "Home" %}</a></li>
+			<li{% block nav_li_class_about %}{% endblock %}><a href="{% url "about" %}">{% trans "About" %}</a></li>
+{#			<li{% block nav_li_class_search %}{% endblock %}><a href="{% url "search" %}">{% trans "Search" %}</a></li>#}
 			{% if not user.is_authenticated %}
 				<!-- not logged in -->
-				<li{% block nav_li_class_login %}{% endblock %}><a href="{% url "login" %}" class="login">log in</a></li>
-				<li{% block nav_li_class_signup %}{% endblock %}><a href="{% url "signup" %}">{% trans "sign up as a django person" %}</a></li>
+				<li{% block nav_li_class_login %}{% endblock %}><a href="{% url "login" %}" class="Login">Log In</a></li>
+				<li{% block nav_li_class_signup %}{% endblock %}><a href="{% url "signup" %}">{% trans "Sign Up" %}</a></li>
 			{% else %}
 				<!-- logged in -->
-				<li>{% blocktrans %}You are logged in as <strong>{{ user }}</strong>{% endblocktrans %}</li>
-				<li{% block nav_li_class_profile %}{% endblock %}><a href="{% url "user_profile" user.username %}">{% trans "your profile" %}</a></li>
-				<li{% block nav_li_class_account %}{% endblock %}><a href="{% url "edit_account" user.username %}">{% trans "your account" %}</a></li>
-				<li><a href="{% url "logout" %}">{% trans "log out" %}</a></li>
+				<li{% block nav_li_class_profile %}{% endblock %}><a href="{% url "user_profile" user.username %}">{% trans "Your Profile" %}</a></li>
+				<li{% block nav_li_class_account %}{% endblock %}><a href="{% url "edit_account" user.username %}">{% trans "Your Account" %}</a></li>
+                <li>{% blocktrans %}You are logged in as <strong>{{ user }}</strong>{% endblocktrans %}</li>
+				<li><a href="{% url "logout" %}">{% trans "Log Out" %}</a></li>
 			{% endif %}
 		</ul>
 		{% if not user.is_authenticated %}
 			<div id="hiddenLogin" style="display: none">
-				<form action="{% url "login" %}" method="POST">{% csrf_token %}<p><label for="id_usernameH">{% trans "Username" %}</label><input type="text" name="username" id="id_usernameH"></p><p><label for="id_passwordH">{% trans "Password" %}</label><input type="password" name="password" id="id_passwordH"></p><p><input type="submit" value="{% trans "Log in" %}" class="submit"></p>
+				<form action="{% url "login" %}" method="POST">{% csrf_token %}<p><label for="id_usernameH">{% trans "Username" %}</label><input type="text" name="username" id="id_usernameH"></p><p><label for="id_passwordH">{% trans "Password" %}</label><input type="password" name="password" id="id_passwordH"></p><p><input type="submit" value="{% trans "Log In" %}" class="submit"></p>
 					<input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url "redirect_to_logged_in_user_profile" %}{% endif %}">
 					<p class="openid">{% url "openid_begin" as openid_url %}{% blocktrans %}Or <a href="{{ openid_url }}">log in with <strong>OpenID</strong>{% endblocktrans %}</a></p>
 				</form>
@@ -40,8 +65,8 @@
 		{% endif %}
 	</div>
 	<div class="header content">
-		{% block header %}<h1>{% trans "Django People" %}</h1>{% endblock %}
-		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %}Discover users of the <a href="https://www.djangoproject.com/">Django Web framework</a> near you{% endblocktrans %}</h2>{% endif %}{% endblock %}
+		{% block header %}<h1>{% trans "All Ukrainians" %}</h1>{% endblock %}
+		{% block tagline %}{% if home %}<h2 class="tagline">{% blocktrans %} Discover Ukrainian people that live near your and get in touch. {% endblocktrans %}</h2>{% endif %}{% endblock %}
 	</div>
 	{% block map %}{% endblock %}
 	<div class="content">
@@ -52,15 +77,25 @@
 </div>
 
 <div class="footer">
-	<p>{% blocktrans %}Hosted on <span class="heroku">Heroku</span>{% endblocktrans %}</p>
+	© 2015 All Ukrainians
 </div>
 
-<script type="text/javascript" src="{% static "djangopeople/js/jquery-1.5.2.min.js" %}"></script>
-<script type="text/javascript">
-	var STATIC_URL = '{{ STATIC_URL }}';
-</script>
-<script type="text/javascript" src="{% static "djangopeople/js/common.js" %}"></script>
+{% if debug %}
+	<script type="text/javascript" src="{% static "djangopeople/js/djangopeople.js" %}"></script>
+{% else %}
+	<script type="text/javascript" src="{% static "djangopeople/js/djangopeople.min.js" %}"></script>
+{% endif %}
 
 {% render_block "js" %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69285806-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

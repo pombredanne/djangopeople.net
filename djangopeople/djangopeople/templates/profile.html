@@ -8,7 +8,6 @@
 {% block bodymeta %} class="vcard hresume"{% endblock %}
 
 {% block header %}
-
 {% addtoblock "css" %}
 {% if person.openid_server %}<link rel="openid.server" href="{{ person.openid_server }}">{% endif %}
 {% if person.openid_delegate %}<link rel="openid.delegate" href="{{ person.openid_delegate }}">{% endif %}
@@ -29,20 +28,7 @@
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-{% if person.latitude and person.longitude %}
-<script type="text/javascript">
-	var nearby_people = [
-		// latitude, longitude, name, username, location description, flag, isocode
-		{% for p in nearest_people %}
-			[{{ p.latitude_str }}, {{ p.longitude_str }}, "{{ p|escapejs }}", "{{ p.user.username|escapejs }}", "{{ p.location_description|escapejs }}", "{% gravatar p.user.email 40 %}", "{{ p.country.iso_code|lower }}"]{% if not forloop.last %},{% endif %}
-		{% endfor %}
-	];
-
-	var person_latitude = {{ person.latitude_str }};
-	var person_longitude = {{ person.longitude_str }};
-</script>
-<script type="text/javascript" src="{% static "djangopeople/js/profile.js" %}"></script>
-{% endif %}
+<script type="text/options" class="map-options" data-shrinklat="{{ person.latitude_str }}" data-shrinklon="{{ person.longitude_str }}"></script>
 {% endaddtoblock %}
 
 	<img src="{% gravatar person.user.email 83 %}" alt="{{ person }}" class="main photo">
@@ -56,9 +42,10 @@
 		</a> <span class="region">{{ person.location_description_html }}</span>{% if is_owner %} <a href="{% url "edit_location" person.user.username %}" class="changeloc">{% trans "(change)" %}</a>{% endif %}</p>
 {% endblock %}
 
+
 {% block map %}
 	<div class="mapContainer minor">
-		<div id="gmap">&nbsp;</div>
+		<div id="map">&nbsp;</div>
 	</div>
 {% endblock %}
 
@@ -107,26 +94,26 @@
 				{% endif %}
 			</div>
 		{% endif %}
-		{% with person.portfoliosite_set.all as portfolio_set %}
-			{% if portfolio_set %}
-				<h2>{% blocktrans with name=person.user.first_name %}{{ name }}'s Django portfolio{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_portfolio" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
-				<p class="help">{% blocktrans with name=person.user.first_name %}Django projects {{ name }} has contributed to{% endblocktrans %}</p>
-				<ul class="siteList">
-					{% for site in portfolio_set %}
-						<li><a href="{{ site.url }}" class="url" rel="nofollow"><cite>{{ site.title }}</cite></a></li>
-					{% endfor %}
-				</ul>
-			{% else %}{% if is_owner %}<p>{% url "edit_portfolio" user.username as portfolio_url %}{% blocktrans %}<a href="{{ portfolio_url }}">Add some sites</a> to your portfolio{% endblocktrans %}</p>{% endif %}
-			{% endif %}
-		{% endwith %}
+{#		{% with person.portfoliosite_set.all as portfolio_set %}#}
+{#			{% if portfolio_set %}#}
+{#				<h2>{% blocktrans with name=person.user.first_name %}{{ name }}'s Django portfolio{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_portfolio" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>#}
+{#				<p class="help">{% blocktrans with name=person.user.first_name %}Django projects {{ name }} has contributed to{% endblocktrans %}</p>#}
+{#				<ul class="siteList">#}
+{#					{% for site in portfolio_set %}#}
+{#						<li><a href="{{ site.url }}" class="url" rel="nofollow"><cite>{{ site.title }}</cite></a></li>#}
+{#					{% endfor %}#}
+{#				</ul>#}
+{#			{% else %}{% if is_owner %}<p>{% url "edit_portfolio" user.username as portfolio_url %}{% blocktrans %}<a href="{{ portfolio_url }}">Add some sites</a> to your portfolio{% endblocktrans %}</p>{% endif %}#}
+{#			{% endif %}#}
+{#		{% endwith %}#}
 	</div>
 
 	<div class="secondary">
-		{% if nearest_people %}
+		{% if people_list %}
 			<h2>{% blocktrans with name=person.user.first_name %}People near {{ name }}{% endblocktrans %}</h2>
 
 			<ul class="detailsList">
-				{% for person in nearest_people %}
+				{% for person in people_list %}
 					<li>
 						<img src="{% gravatar person.user.email 40 %}" alt="{{ person }}" class="main">
 						<h3><a href="{{ person.get_absolute_url }}">{{ person }}</a></h3>

@@ -2,19 +2,19 @@ from django.utils.translation import ugettext as _
 
 SERVICES = (
     # shortname, name, icon
-    ('flickr', 'Flickr', 'img/services/flickr.png'),
-    ('delicious', 'del.icio.us', 'img/services/delicious.png'),
-    ('magnolia', 'Ma.gnolia.com', 'img/services/magnolia.png'),
-    ('twitter', 'Twitter', 'img/services/twitter.png'),
+    # ('delicious', 'del.icio.us', 'img/services/delicious.png'),
+    # ('magnolia', 'Ma.gnolia.com', 'img/services/magnolia.png'),
     ('facebook', 'Facebook', 'img/services/facebook.png'),
+    ('twitter', 'Twitter', 'img/services/twitter.png'),
     ('googleplus', 'Google+', 'img/services/googleplus.png'),
     ('linkedin', 'LinkedIn', 'img/services/linkedin.png'),
-    ('pownce', 'Pownce', 'img/services/pownce.png'),
-    ('djangosnippets', 'djangosnippets.org', 'img/services/django.png'),
-    ('djangosites', 'DjangoSites.org', 'img/services/django.png'),
-    ('bitbucket', 'Bitbucket', 'img/services/bitbucket.png'),
+    ('flickr', 'Flickr', 'img/services/flickr.png'),
+    # ('pownce', 'Pownce', 'img/services/pownce.png'),
+    # ('djangosnippets', 'djangosnippets.org', 'img/services/django.png'),
+    # ('djangosites', 'DjangoSites.org', 'img/services/django.png'),
+    # ('bitbucket', 'Bitbucket', 'img/services/bitbucket.png'),
     ('github', 'GitHub', 'img/services/github.png'),
-    ('stackoverflow', 'Stack Overflow', 'img/services/stackoverflow.png'),
+    # ('stackoverflow', 'Stack Overflow', 'img/services/stackoverflow.png'),
 )
 SERVICES_DICT = dict([(r[0], r) for r in SERVICES])
 
@@ -35,11 +35,11 @@ MACHINETAGS_FROM_FIELDS = dict(
      for shortname, name, icon in SERVICES] +
     [('im_%s' % shortname, ('im', shortname))
      for shortname, name, icon in IMPROVIDERS] + [
-         ('privacy_search', ('privacy', 'search')),
-         ('privacy_email', ('privacy', 'email')),
-         ('privacy_im', ('privacy', 'im')),
-         ('privacy_irctrack', ('privacy', 'irctrack')),
-         ('blog', ('profile', 'blog')),
-         ('looking_for_work', ('profile', 'looking_for_work')),
-     ]
+        ('privacy_search', ('privacy', 'search')),
+        ('privacy_email', ('privacy', 'email')),
+        ('privacy_im', ('privacy', 'im')),
+        ('privacy_irctrack', ('privacy', 'irctrack')),
+        ('blog', ('profile', 'blog')),
+        ('looking_for_work', ('profile', 'looking_for_work')),
+    ]
 )
